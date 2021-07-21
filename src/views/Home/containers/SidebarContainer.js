@@ -5,20 +5,16 @@ import SidebarMobile from "../../common/components/Sidebar/SidebarMobile";
 import {useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
 
-const SidebarContainer = ({match, location}) => {
+const SidebarContainer = ({location}) => {
 
     const sidebar = useSelector(state => state.app.sidebar);
-
-    const query = match.params.query;
-    console.log("@@ match", match)
-    console.log("@@ location", location)
 
     return (
         <Container>
             {
                 sidebar ? <Sidebar/> :
                     (
-                        (location.pathname === '/' || location.pathname === `/results/${query}`) ?
+                        (!(location.pathname === `/watch`)) ?
                             <SidebarMobile/> : <></>
                     )
             }

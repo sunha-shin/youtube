@@ -6,7 +6,6 @@ import moment from "moment";
 import {abbreviateNumber} from "../../../../lib/common";
 
 const SearchResultItem = ({items}) => {
-    console.log("@@ search result items", items)
 
     const dateFormated = moment(items?.snippet?.publishedAt).fromNow();
     const viewFormated = abbreviateNumber(items?.statistics?.viewCount);

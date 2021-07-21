@@ -7,6 +7,7 @@ import moment from "moment";
 import {abbreviateNumber} from "../../../../lib/common";
 import {navigate} from "../../../../lib/history";
 import {useSelector} from "react-redux";
+import qs from 'qs';
 
 const VideoItem = ({items = []}) => {
 
@@ -17,7 +18,7 @@ const VideoItem = ({items = []}) => {
     const formatedView = abbreviateNumber(items?.statistics?.viewCount);
 
     const onClick = (id) => {
-        navigate(`/${id}`)
+        navigate(`/watch?${qs.stringify({v: id})}`)
     };
 
     return (

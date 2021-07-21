@@ -4,9 +4,9 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Gnb from "./views/common/components/Header/Gnb";
 import React from "react";
-import VideoById from "./pages/VideoById";
 import styled from "styled-components";
 import SidebarContainer from "./views/Home/containers/SidebarContainer";
+import Watch from "./pages/Watch";
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
             <Switch>
                 <Route exact path={"/"} component={Home}/>
                 <Route exact path={"/results/:query"} component={Search}/>
-                <Route exact path={"/:id"} component={VideoById}/>
+                <Route exact path={"/watch"} component={Watch}/>
             </Switch>
         </Container>
     );
