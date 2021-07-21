@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import {GlobalStyle} from "./styled/GlobalStyle";
+import {Switch, Route} from 'react-router-dom';
+import Home from "./pages/Home";
+import Search from "./pages/Search";
+import Gnb from "./views/common/components/Header/Gnb";
+import Sidebar from "./views/common/components/Sidebar/Sidebar";
+import React from "react";
+import SidebarMobile from "./views/common/components/Sidebar/SidebarMobile";
+import {useSelector} from "react-redux";
+import VideoById from "./pages/VideoById";
+import styled from "styled-components";
+import SidebarContainer from "./views/Home/containers/SidebarContainer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <Container>
+            <GlobalStyle/>
+            <Gnb/>
+            <SidebarContainer/>
+            <Switch>
+                <Route exact path={"/"} component={Home}/>
+                <Route exact path={"/results/:query"} component={Search}/>
+                <Route exact path={"/:id"} component={VideoById}/>
+            </Switch>
+        </Container>
+    );
 }
 
+const Container = styled.div`
+  background: #f9f9f9;
+`;
+
+
 export default App;
+
