@@ -1,11 +1,10 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import {MenuIcon} from "../../../../icons";
 import Logo from "./Logo";
 import {DefaultIcon} from "../Button/Button.Styled";
 import {useSelector} from "react-redux";
 import {appActions} from "../../../../redux/actionCreators";
-import {navigate} from "../../../../lib/history";
 
 const HeaderLeft = () => {
     const sidebar = useSelector(state => state.app.sidebar);

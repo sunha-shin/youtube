@@ -81,7 +81,7 @@ const Container = styled.div`
   width: 240px;
   z-index: 2000;
   background: rgba(255, 255, 255);
-  //padding: 0 24px 0 0;
+  overflow-y: auto;
 `;
 
 const Section = styled.div`

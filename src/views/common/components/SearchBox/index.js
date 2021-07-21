@@ -12,6 +12,7 @@ const SearchBox = () => {
     };
 
     const onSubmit = (event) => {
+        event.preventDefault();
         navigate(`/results/${term}`);
     };
 
