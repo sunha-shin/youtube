@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const ProfileThumb = () => {
+const ProfileThumb = ({size}) => {
     return (
         <Container>
             <Thumb>
@@ -17,12 +17,13 @@ const Container = styled.div`
 `;
 
 const Thumb = styled.div`
-  height: 36px;
-  width: 36px;
+  height: ${(props) => props.size || 36}px;
+  width: ${(props) => props.size || 36}px;
   margin-right: 12px;
 
   img {
     border-radius: 50%;
   }
 `;
+
 export default ProfileThumb;

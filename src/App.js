@@ -17,7 +17,7 @@ function App() {
             <SidebarContainer/>
             <Switch>
                 <Route exact path={"/"} component={Home}/>
-                <Route exact path={"/results/:query"} component={Search}/>
+                <Route exact path={"/results"} component={Search}/>
                 <Route exact path={"/watch"} component={Watch}/>
             </Switch>
         </Container>

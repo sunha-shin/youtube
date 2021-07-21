@@ -4,14 +4,24 @@ import {ViewMoreIcon} from "../../../../icons";
 import VideoThumb from "../../../common/components/Items/VideoThumb";
 import moment from "moment";
 import {abbreviateNumber} from "../../../../lib/common";
+import {navigate} from "../../../../lib/history";
+import qs from "qs";
+import {useSelector} from "react-redux";
 
 const SearchResultItem = ({items}) => {
+
+    const videoId = useSelector(state => items?.id?.videoId);
 
     const dateFormated = moment(items?.snippet?.publishedAt).fromNow();
     const viewFormated = abbreviateNumber(items?.statistics?.viewCount);
 
+    const onClick = (id) => {
+        navigate(`/watch?${qs.stringify({v: id})}`)
+    };
+
+
     return (
-        <Container>
+        <Container onClick={() => onClick(videoId)}>
             <Thumbnail>
                 <VideoThumb url={items?.snippet?.thumbnails?.medium.url}/>
             </Thumbnail>
@@ -37,6 +47,7 @@ const SearchResultItem = ({items}) => {
 const Container = styled.div`
   display: flex;
   padding-top: 15px;
+  cursor: pointer;
 `;
 
 const Thumbnail = styled.div`

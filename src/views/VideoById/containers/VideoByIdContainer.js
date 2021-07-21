@@ -1,48 +1,46 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components';
 import {withRouter} from "react-router-dom";
+import {videoActions} from "../../../redux/actionCreators";
+import qs from "qs";
+import {API_KEY} from "../../../constants";
+import RecommendedVideo from "../components/Video/RecommendedVideo";
+import MainVideoContents from "../components/Video/MainVideoContents";
+import {useSelector} from "react-redux";
 
-const VideoByIdContainer = ({videoId}) => {
+const VideoByIdContainer = ({location}) => {
 
-    // const sidebar = useSelector(state => state.app.sidebar);
+    const videoId = (qs.parse(location.search, {ignoreQueryPrefix: true}).v);
+    const videoItem = useSelector(state => state.video?.videoItem);
 
+    useEffect(() => {
+        getVideoById(videoId)
+    }, [])
 
-    // const getVideoById = () => {
-    //
-    // };
+    const getVideoById = (id) => {
+        videoActions.getVideoById({
+            part: `snippet, statistics`,
+            id,
+            key: API_KEY,
+        })
+    };
 
     return (
         <Container>
-            <MainVideoSection>
-                {/*<iframe*/}
-                {/*    id="player" type="text/html" width="1280" height="720"*/}
-                {/*    src={`http://www.youtube.com/embed/${videoId}?enablejsapi=1&origin=http://example.com`}*/}
-                {/*    frameBorder="0"/>*/}
-                {/*    origin에 매개변수 값으로 호스트 페이지의 전체 도메인을 포함해야함*/}
-            </MainVideoSection>
-
-
-            <Recommended>
-
-            </Recommended>
+            {
+                videoItem &&
+                <MainVideoContents videoItem={videoItem}/>
+            }
         </Container>
     )
 }
 
 const Container = styled.div`
-  background: #f9f9f9;
-  margin: 0 75px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 75px;
+  background: #f9f9f9;
 `;
 
-const MainVideoSection = styled.div`
-  margin: 0 0 0 24px;
-  padding: 24px 24px 0 0;
-`;
-
-const Recommended = styled.div`
-
-`;
 export default withRouter(VideoByIdContainer);

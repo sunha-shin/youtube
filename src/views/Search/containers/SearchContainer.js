@@ -5,11 +5,14 @@ import {API_KEY} from "../../../constants";
 import {withRouter} from "react-router-dom";
 import {useSelector} from "react-redux";
 import SearchResultDetail from "../components/Detail/SearchResultDetail";
+import qs from "qs";
 
-const SearchContainer = ({match}) => {
+const SearchContainer = ({location}) => {
 
-    const query = match.params.query;
+    const query = qs.parse(location.search, {ignoreQueryPrefix:true})
     const items = useSelector(state => state.search?.searchResult?.items);
+
+    console.log("@@ search container location", location)
 
     useEffect(() => {
         getSearchResult();

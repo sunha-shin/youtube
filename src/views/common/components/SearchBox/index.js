@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components';
 import {SearchIcon} from "../../../../icons";
 import {navigate} from "../../../../lib/history";
+import qs from 'qs';
 
 const SearchBox = () => {
 
@@ -13,7 +14,7 @@ const SearchBox = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        navigate(`/results/${term}`);
+        navigate(`/results?${qs.stringify({search_query: term})}`);
     };
 
     return (

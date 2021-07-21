@@ -8,6 +8,7 @@ import {withRouter} from "react-router-dom";
 const SidebarContainer = ({location}) => {
 
     const sidebar = useSelector(state => state.app.sidebar);
+    console.log("@@ location.search", location.search)
 
     return (
         <Container>
