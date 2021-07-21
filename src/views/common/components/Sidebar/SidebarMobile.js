@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 import {ExploreIcon, HistoryIcon, HomeIcon, LibraryIcon, SubscriptionsIcon} from "../../../../icons";
-import MenuItem from "../Items/MenuItem";
 import MenuItemMobile from "../Items/MenuItemMobile";
 
 const SidebarMobile = () => {

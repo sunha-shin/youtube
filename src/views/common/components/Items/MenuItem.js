@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import {DefaultIcon} from "../Button/Button.Styled";
-import {HomeIcon} from "../../../../icons";
 
 const MenuItem = ({title, renderItem}) => {
     return (

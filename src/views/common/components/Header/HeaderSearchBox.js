@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import SearchBox from "../SearchBox";
-import {MicIcon, SearchIcon} from "../../../../icons";
+import {MicIcon} from "../../../../icons";
 import {DefaultIcon} from "../Button/Button.Styled";
 
 const HeaderSearchBox = () => {

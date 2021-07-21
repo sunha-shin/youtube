@@ -1,18 +1,17 @@
 import React from 'react'
 import styled from 'styled-components';
 import {withRouter} from "react-router-dom";
-import {useSelector} from "react-redux";
 
 const VideoByIdContainer = ({match}) => {
 
-    const sidebar = useSelector(state => state.app.sidebar);
+    // const sidebar = useSelector(state => state.app.sidebar);
 
     const videoId = match.params.id;
     console.log("@@ video by Id container match", match)
 
-    const getVideoById = () => {
-
-    };
+    // const getVideoById = () => {
+    //
+    // };
 
     return (
         <Container>

@@ -1,8 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import Logo from "./Logo";
-import {MenuIcon, SearchIcon} from "../../../../icons";
-import SearchBox from "../SearchBox";
 import HeaderRight from "./HeaderRight";
 import HeaderSearchBox from "./HeaderSearchBox";
 import HeaderLeft from "./HeaderLeft";
