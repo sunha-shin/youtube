@@ -4,8 +4,8 @@ import {withRouter} from "react-router-dom";
 import {videoActions} from "../../../redux/actionCreators";
 import qs from "qs";
 import {API_KEY} from "../../../constants";
-import RecommendedVideo from "../components/Video/RecommendedVideo";
 import MainVideoContents from "../components/Video/MainVideoContents";
+import _ from 'lodash';
 import {useSelector} from "react-redux";
 
 const VideoByIdContainer = ({location}) => {
@@ -25,10 +25,14 @@ const VideoByIdContainer = ({location}) => {
         })
     };
 
+    if(_.isEmpty(videoItem)) {
+        return "loading.."
+    }
+
     return (
         <Container>
             {
-                videoItem &&
+                !_.isEmpty(videoItem) &&
                 <MainVideoContents videoItem={videoItem}/>
             }
         </Container>

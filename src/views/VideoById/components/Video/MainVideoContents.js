@@ -11,10 +11,9 @@ import {IconButton} from "../../../common/components/Button/Button.Styled";
 const MainVideoContents = ({videoItem}) => {
 
     const videoId = videoItem?.id;
-    console.log("@@ videoItem", videoItem)
 
-    const {title, description, publishedAt, channelTitle} = videoItem[0]?.snippet;
-    const {viewCount, likeCount, dislikeCount} = videoItem[0]?.statistics;
+    const {title, description, publishedAt, channelTitle} = videoItem?.[0].snippet;
+    const {viewCount, likeCount, dislikeCount} = videoItem?.[0].statistics;
 
     const formatedLike = abbreviateNumber(likeCount);
     const formatedDislike = abbreviateNumber(dislikeCount);
