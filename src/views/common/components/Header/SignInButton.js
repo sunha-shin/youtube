@@ -1,10 +1,18 @@
 import React from 'react'
 import styled from 'styled-components';
 import {SignInIcon} from "../../../../icons";
+import {useSignIn} from "../../../../hooks/useSignIn";
+import {CLIENT_ID} from "../../../../constants";
+import IosLoader from "../Loader/IosLoader";
 
 const SignInButton = () => {
+
+    const {signIn, loaded} = useSignIn();
+
+    if(!loaded) return <IosLoader/>
+
     return (
-        <Container>
+        <Container onClick={signIn}>
             <SignInIcon/>
             <span>sign in</span>
         </Container>
@@ -17,12 +25,11 @@ const Container = styled.div`
   justify-content: center;
   background: #fff;
   padding: 5px 11px;
-  //margin-left: 8px;
   color: #065FD4;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
-  border-radius: 2px;
+  border-radius: 3px;
   border: 1px solid #065FD4;
   cursor: pointer;
   width: 108.75px;

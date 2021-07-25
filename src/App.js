@@ -1,12 +1,17 @@
+import React from "react";
+import styled from "styled-components";
 import {GlobalStyle} from "./styled/GlobalStyle";
 import {Switch, Route} from 'react-router-dom';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Gnb from "./views/common/components/Header/Gnb";
-import React from "react";
-import styled from "styled-components";
-import SidebarContainer from "./views/Home/containers/SidebarContainer";
 import Watch from "./pages/Watch";
+
+import SidebarContainer from "./views/common/containers/SidebarContainer";
 
 function App() {
 
@@ -15,11 +20,14 @@ function App() {
             <GlobalStyle/>
             <Gnb/>
             <SidebarContainer/>
-            <Switch>
-                <Route exact path={"/"} component={Home}/>
-                <Route exact path={"/results"} component={Search}/>
-                <Route exact path={"/watch"} component={Watch}/>
-            </Switch>
+            <Main>
+                <Switch>
+                    <Route exact path={"/"} component={Home}/>
+                    <Route exact path={"/results"} component={Search}/>
+                    <Route exact path={"/watch"} component={Watch}/>
+                </Switch>
+            </Main>
+            <ToastContainer/>
         </Container>
     );
 }
@@ -28,6 +36,9 @@ const Container = styled.div`
   background: #f9f9f9;
 `;
 
+const Main = styled.main`
+
+`;
 
 export default App;
 

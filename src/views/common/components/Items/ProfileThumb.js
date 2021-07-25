@@ -1,27 +1,22 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const ProfileThumb = ({size}) => {
+const ProfileThumb = ({url, size}) => {
+
     return (
-        <Container>
-            <Thumb>
-                <img src={"https://i0.wp.com/newdoorfiji.com/wp-content/uploads/2018/03/profile-img-1.jpg?ssl=1"}
-                     alt=""/>
-            </Thumb>
+        <Container size={size}>
+            <img src={url}
+                 alt=""
+            />
         </Container>
     )
 }
 
 const Container = styled.div`
-
-`;
-
-const Thumb = styled.div`
-  height: ${(props) => props.size || 36}px;
-  width: ${(props) => props.size || 36}px;
-  margin-right: 12px;
-
   img {
+    height: ${props => props.size || 36}px;
+    width: ${props => props.size || 36}px;
+    cursor: pointer;
     border-radius: 50%;
   }
 `;

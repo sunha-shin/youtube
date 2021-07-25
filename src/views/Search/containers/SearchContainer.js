@@ -9,21 +9,23 @@ import qs from "qs";
 
 const SearchContainer = ({location}) => {
 
-    const query = qs.parse(location.search, {ignoreQueryPrefix:true})
-    const items = useSelector(state => state.search?.searchResult?.items);
+    const params = qs.parse(location.search, {ignoreQueryPrefix:true});
+    const search_query = params.search_query;
 
-    console.log("@@ search container location", location)
+
+    const items = useSelector(state => state.search?.searchResult?.items);
 
     useEffect(() => {
         getSearchResult();
-    }, [query])
+    }, [search_query])
 
     const getSearchResult = () => {
         searchActions.getSearchResult({
             part: 'snippet',
             maxResults: 10,
             key: API_KEY,
-            q: {query},
+            q: search_query,
+            // q(query) should be STRING
         })
     };
 

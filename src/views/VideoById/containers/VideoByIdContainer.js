@@ -7,10 +7,11 @@ import {API_KEY} from "../../../constants";
 import MainVideoContents from "../components/Video/MainVideoContents";
 import _ from 'lodash';
 import {useSelector} from "react-redux";
+import IosLoader from "../../common/components/Loader/IosLoader";
 
 const VideoByIdContainer = ({location}) => {
 
-    const videoId = (qs.parse(location.search, {ignoreQueryPrefix: true}).v);
+    const {videoId} = qs.parse(location.search, {ignoreQueryPrefix: true});
     const videoItem = useSelector(state => state.video?.videoItem);
 
     useEffect(() => {
@@ -25,16 +26,16 @@ const VideoByIdContainer = ({location}) => {
         })
     };
 
-    if(_.isEmpty(videoItem)) {
-        return "loading.."
-    }
+    if (_.isEmpty(videoItem)) return (
+        <WatchLoader>
+            <IosLoader/>
+        </WatchLoader>
+    );
+    // videoItem이 empty면 중단
 
     return (
         <Container>
-            {
-                !_.isEmpty(videoItem) &&
-                <MainVideoContents videoItem={videoItem}/>
-            }
+            <MainVideoContents videoItem={videoItem}/>
         </Container>
     )
 }
@@ -45,6 +46,13 @@ const Container = styled.div`
   align-items: center;
   margin: 0 75px;
   background: #f9f9f9;
+`;
+
+const WatchLoader = styled.div`
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default withRouter(VideoByIdContainer);

@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
-import Sidebar from "../../common/components/Sidebar/Sidebar";
-import SidebarMobile from "../../common/components/Sidebar/SidebarMobile";
+import Sidebar from "../components/Sidebar/Sidebar";
+import SidebarMobile from "../components/Sidebar/SidebarMobile";
 import {useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
-import SidebarWatch from "../../common/components/Sidebar/SidebarWatch";
+import SidebarWatch from "../components/Sidebar/SidebarWatch";
 
 const SidebarContainer = ({location}) => {
 

@@ -1,4 +1,4 @@
-import {BASE_URL} from "../constants";
+import {API_KEY, BASE_URL} from "../constants";
 import axios from "axios";
 import {toast} from "react-toastify";
 
@@ -15,7 +15,7 @@ const config = {
 
 const axiosInstance = axios.create(config);
 
-export const request = (method, url, data) => {
+export const request = async (method, url, data) => {
     try {
         let config = {
             url,
@@ -24,13 +24,14 @@ export const request = (method, url, data) => {
 
         if (method === RequestConstants.GET) {
             config.params = data;
+            config.params.key= API_KEY;
         } else {
             config.data = data;
         }
 
         // axiosInstance.defaults.headers.common['Authorization'] = `Bearer `;
 
-        return axiosInstance(config);
+        return await axiosInstance(config);
 
     } catch (err) {
         toast(err.response.status)
