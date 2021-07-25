@@ -163,7 +163,7 @@ export const SignInIcon = () => (
 
 export const SettingsIcon = (color) => (
     <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="style-scope yt-icon"
-         style={{pointerEvents: "none", display: "block", width: "24", height: "24", fill:color}}>
+         style={{pointerEvents: "none", display: "block", width: "24", height: "24", fill: color}}>
         <g className="style-scope yt-icon">
             <path
                 d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.1-1.65c.2-.15.25-.42.13-.64l-2-3.46c-.12-.22-.4-.3-.6-.22l-2.5 1c-.52-.4-1.08-.73-1.7-.98l-.37-2.65c-.06-.24-.27-.42-.5-.42h-4c-.27 0-.48.18-.5.42l-.4 2.65c-.6.25-1.17.6-1.7.98l-2.48-1c-.23-.1-.5 0-.6.22l-2 3.46c-.14.22-.08.5.1.64l2.12 1.65c-.04.32-.07.65-.07.98s.02.66.06.98l-2.1 1.65c-.2.15-.25.42-.13.64l2 3.46c.12.22.4.3.6.22l2.5-1c.52.4 1.08.73 1.7.98l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.6-.25 1.17-.6 1.7-.98l2.48 1c.23.1.5 0 .6-.22l2-3.46c.13-.22.08-.5-.1-.64l-2.12-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"
@@ -183,7 +183,7 @@ export const FlagIcon = () => (
 
 export const HelpIcon = (color) => (
     <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="style-scope yt-icon"
-         style={{pointerEvents: "none", display: "block", width: "24", height: "24", fill:color}}>
+         style={{pointerEvents: "none", display: "block", width: "24", height: "24", fill: color}}>
         <g className="style-scope yt-icon">
             <path
                 d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
@@ -194,7 +194,7 @@ export const HelpIcon = (color) => (
 
 export const FeedbackIcon = (color) => (
     <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="style-scope yt-icon"
-         style={{pointerEvents: "none", display: "block", width: "24", height: "24", fill:color}}>
+         style={{pointerEvents: "none", display: "block", width: "24", height: "24", fill: color}}>
         <g className="style-scope yt-icon">
             <path d="M0 0h24v24H0z" fill="none" className="style-scope yt-icon"/>
             <path
@@ -216,7 +216,7 @@ export const SportsIcon = () => (
 
 export const GamingIcon = () => (
     <img height="24" width="24" alt="" style={{borderRadius: "50%"}}
-         src="https://yt3.ggpht.com/XaPZzv8WcdpRhbqYNgWUO7meYrcD4R3AUv_jwgH1px1cdiMNyxWxrDmAa5D-qu5FGA_h6j7VNA=s88-c-k-c0x00ffffff-no-rj"/>
+         src="https://yt3.ggpht.com/dvN4Frf_y5YaDL0E_y5Y8qJ-M7KJEDSWjTwaQFojMf6KM9AVy8BsK7T_SGZeMtyTxuxBr5hCCQ=s88-c-k-c0x00ffffff-no-rj"/>
 )
 
 export const MoviesShowsIcon = () => (
@@ -241,7 +241,7 @@ export const FashionNBeautyIcon = () => (
 
 export const LearningIcon = () => (
     <img height="24" width="24" alt="" style={{borderRadius: "50%"}}
-         src="https://yt3.ggpht.com/DfbKaHXe14twFZmisF4CFJQAZFi5cj_bKREvSkMRiZQv2TzLVicAYtgPcfqMWqBiO9SXr3bRYg=s88-c-k-c0x00ffffff-no-rj"/>
+         src="https://yt3.ggpht.com/B-pVSfDv0pKgoIMhrBnqh8Ke-Ps1w_-sylsbrcaMil_Lb-ucG3dkp8D4WmzuS4CsE3IvYtPTDsQ=s88-c-k-c0x00ffffff-no-rj"/>
 )
 
 export const SpotlightIcon = () => (

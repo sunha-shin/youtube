@@ -4,6 +4,7 @@ import {ExploreIcon, HistoryIcon, HomeIcon, LibraryIcon, SubscriptionsIcon} from
 import MenuItemMobile from "../Items/MenuItemMobile";
 
 const SidebarMobile = () => {
+
     return (
         <Container>
             <MenuItemMobile title={"Home"} renderItem={<HomeIcon/>}/>
@@ -17,10 +18,10 @@ const SidebarMobile = () => {
 
 const Container = styled.div`
   position: fixed;
+  width: 72px;
   top: 56px;
   bottom: 0;
   left: 0;
-  width: 72px;
   z-index: 2000;
   background: rgba(255, 255, 255);
 `;

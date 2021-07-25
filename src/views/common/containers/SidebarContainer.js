@@ -4,7 +4,8 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import SidebarMobile from "../components/Sidebar/SidebarMobile";
 import {useSelector} from "react-redux";
 import {withRouter} from "react-router-dom";
-import SidebarWatch from "../components/Sidebar/SidebarWatch";
+import SidebarDefault from "../components/Sidebar/SidebarDefault";
+import SidebarDim from "../components/Sidebar/SidebarDim";
 
 const SidebarContainer = ({location}) => {
 
@@ -14,9 +15,9 @@ const SidebarContainer = ({location}) => {
         <Container>
             {
                 (location.pathname === '/watch') ?
-                    (sidebar && <SidebarWatch/>)
+                    (sidebar && <SidebarDim/>)
                     :
-                    (sidebar ? <Sidebar/> : <SidebarMobile/>)
+                    (sidebar ? <SidebarDefault/> : <SidebarMobile/>)
             }
         </Container>
     )

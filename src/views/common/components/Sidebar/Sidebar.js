@@ -119,13 +119,8 @@ const Sidebar = () => {
 }
 
 const Container = styled.div`
-  position: fixed;
-  top: 56px;
-  bottom: 0;
-  left: 0;
-  width: 240px;
   z-index: 2000;
-  background: rgba(255, 255, 255);
+  background: #fff;
   overflow-y: auto;  
 `;
 
