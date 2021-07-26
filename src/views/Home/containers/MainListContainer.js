@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components';
 import GridList from "../../common/components/VideoList/GridList";
-import {videoActions} from "../../../redux/actionCreators";
+import {homeActions} from "../../../redux/actionCreators";
 import {API_KEY} from "../../../constants";
 import {useSelector} from "react-redux";
 import cn from 'classnames'
 
 const MainListContainer = () => {
 
-    const list = useSelector(state => state.video.videoList.items);
+    const list = useSelector(state => state.home?.videoList?.items);
     const sidebar = useSelector(state => state.app.sidebar);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const MainListContainer = () => {
     }, [])
 
     const getVideo = () => {
-        videoActions.getVideo({
+        homeActions.getVideo({
             part: 'snippet, statistics, contentDetails',
             chart: 'mostPopular',
             maxResults: 20,

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
-import ProfileThumb from "../Items/ProfileThumb";
+import ProfileThumb from "../Thumnnails/ProfileThumb";
 import ProfileListbox from "./ProfileListbox";
 
 const Member = ({profile}) => {

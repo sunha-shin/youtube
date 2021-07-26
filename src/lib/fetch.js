@@ -35,7 +35,7 @@ export const request = async (method, url, data) => {
 
     } catch (err) {
         toast(err.response.status)
-        console.log('@@ err', err);
+        console.log('@@ request err', err);
         return err;
     }
 };

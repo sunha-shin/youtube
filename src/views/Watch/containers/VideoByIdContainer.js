@@ -1,28 +1,29 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components';
 import {withRouter} from "react-router-dom";
-import {videoActions} from "../../../redux/actionCreators";
+import {appActions, watchActions} from "../../../redux/actionCreators";
 import qs from "qs";
-import {API_KEY} from "../../../constants";
-import MainVideoContents from "../components/Video/MainVideoContents";
+import MainVideoItem from "../../common/components/Items/MainVideoItem";
 import _ from 'lodash';
 import {useSelector} from "react-redux";
 import IosLoader from "../../common/components/Loader/IosLoader";
 
 const VideoByIdContainer = ({location}) => {
 
-    const {videoId} = qs.parse(location.search, {ignoreQueryPrefix: true});
-    const videoItem = useSelector(state => state.video?.videoItem);
+    const params = qs.parse(location.search, {ignoreQueryPrefix: true});
+    const videoId = params.v;
+    const videoItem = useSelector(state => state.watch?.videoItem);
+
+    appActions.handleSidebar(false);
 
     useEffect(() => {
         getVideoById(videoId)
     }, [])
 
     const getVideoById = (id) => {
-        videoActions.getVideoById({
+        watchActions.getVideoById({
             part: `snippet, statistics`,
             id,
-            key: API_KEY,
         })
     };
 
@@ -35,7 +36,7 @@ const VideoByIdContainer = ({location}) => {
 
     return (
         <Container>
-            <MainVideoContents videoItem={videoItem}/>
+            <MainVideoItem videoItem={videoItem}/>
         </Container>
     )
 }

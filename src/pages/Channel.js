@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const RecommendedVideo = () => {
+const Channel = () => {
     return (
         <Container>
-            RecommendedVideo
+            Channel
         </Container>
     )
 }
@@ -13,4 +13,4 @@ const Container = styled.div`
 
 `;
 
-export default RecommendedVideo;
+export default Channel;

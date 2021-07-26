@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
-import MainVideo from "./MainVideo";
-import ViewPublishedAt from "../../../common/components/FormatedNum/ViewPublishedAt";
+import MainVideo from "../VideoList/MainVideo";
+import ViewPublishedAt from "../FormatedNum/ViewPublishedAt";
 import {DislikeIcon, LikeIcon, SaveIcon, ShareIcon, VerticalViewMoreIcon} from "../../../../icons";
 import {abbreviateNumber} from "../../../../lib/common";
-import RecommendedVideo from "./RecommendedVideo";
-import ProfileThumb from "../../../common/components/Items/ProfileThumb";
-import {IconButton} from "../../../common/components/Button/Button.Styled";
+import RecommendedVideoItem from "./RecommendedVideoItem";
+import ProfileThumb from "../Thumnnails/ProfileThumb";
+import {IconButton} from "../Button/Button.Styled";
 
-const MainVideoContents = ({videoItem}) => {
+const MainVideoItem = ({videoItem}) => {
 
     const videoId = videoItem?.id;
 
@@ -68,7 +68,7 @@ const MainVideoContents = ({videoItem}) => {
                 </Body>
             </MainVideoSection>
             <Recommended>
-                <RecommendedVideo/>
+                <RecommendedVideoItem/>
             </Recommended>
         </Container>
     )
@@ -175,4 +175,4 @@ const Button = styled(IconButton)`
 const Comments = styled.div`
     
 `;
-export default MainVideoContents;
+export default MainVideoItem;

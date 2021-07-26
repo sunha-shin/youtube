@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import ProfileThumb from "../Items/ProfileThumb";
+import ProfileThumb from "../Thumnnails/ProfileThumb";
 import MenuItem from "../Items/MenuItem";
 import {
     AppearanceIcon, FeedbackIcon, HelpIcon, KeyBoardShortCutIcon, LanguageIcon, LocationIcon,
