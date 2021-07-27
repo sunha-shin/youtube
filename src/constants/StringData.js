@@ -1,4 +1,4 @@
-export const MenuData = {
+export const StringData = {
     Home: "Home",
     Explore: "Explore",
     Subscriptions: "Subscriptions",
@@ -48,4 +48,8 @@ export const About = {
     PolicyNSafety:"Policy & Safety",
     HowYouTubeWorks:"How YouTube Works",
     TestNewFeatures:"Test new features",
+}
+
+export const Placeholder = {
+    comment : 'Add a public comment...'
 }

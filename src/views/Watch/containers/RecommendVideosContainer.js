@@ -4,13 +4,13 @@ import styled from 'styled-components';
 const RecommendVideosContainer = () => {
     return (
         <Container>
-            RecommendVideosContainer
+            RecommendContainer
         </Container>
     )
 }
 
 const Container = styled.div`
-
 `;
+
 
 export default RecommendVideosContainer;

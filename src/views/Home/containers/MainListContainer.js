@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components';
 import GridList from "../../common/components/VideoList/GridList";
-import {homeActions} from "../../../redux/actionCreators";
+import {appActions, homeActions} from "../../../redux/actionCreators";
 import {API_KEY} from "../../../constants";
 import {useSelector} from "react-redux";
 import cn from 'classnames'
@@ -13,6 +13,7 @@ const MainListContainer = () => {
 
     useEffect(() => {
         getVideo();
+        appActions.handleSidebar(true);
     }, [])
 
     const getVideo = () => {
@@ -32,9 +33,9 @@ const MainListContainer = () => {
     )
 }
 
-const Container = styled.div`  
+const Container = styled.div`
   padding-left: 72px;
-  
+
   &.isActive {
     //padding-left: 240px;
     padding: 0 50px 0 300px;

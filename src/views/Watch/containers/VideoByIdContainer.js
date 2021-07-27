@@ -42,11 +42,7 @@ const VideoByIdContainer = ({location}) => {
 }
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 75px;
-  background: #f9f9f9;
+ 
 `;
 
 const WatchLoader = styled.div`

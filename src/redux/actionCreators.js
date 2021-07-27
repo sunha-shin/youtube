@@ -1,9 +1,9 @@
 import {bindActionCreators} from "redux";
 
-import {Action as AppAction} from './app/redux';
+import {Action as AppAction} from '../views/common/redux/app/redux';
 import {Action as homeAction} from "../views/Home/redux/redux";
 import {Action as searchAction} from "../views/Search/redux/redux";
-import {Action as authAction} from "./auth/redux";
+import {Action as authAction} from "../views/common/redux/auth/redux";
 import {Action as watchAction} from '../views/Watch/redux/redux'
 import store from "./store";
 

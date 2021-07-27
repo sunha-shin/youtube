@@ -13,7 +13,7 @@ import {
 } from "../../../../icons";
 import {useSignOut} from "../../../../hooks/useSignOut";
 import SignOutButton from "./SignOutButton";
-import {MenuData} from "../../../../constants/menuData";
+import {StringData} from "../../../../constants/StringData";
 import {Color} from "../../../../constants/styled";
 
 const ProfileListbox = ({profile}) => {
@@ -33,34 +33,34 @@ const ProfileListbox = ({profile}) => {
                     </ProfileImg>
                     <Desc>
                         <p className={"userName"}>{profile.name}</p>
-                        <p className={"manageAccount"}>{MenuData.ManageYourGoogleAccount}</p>
+                        <p className={"manageAccount"}>{StringData.ManageYourGoogleAccount}</p>
                     </Desc>
                 </Header>
             </Section>
 
             <Section>
-                <MenuItem title={MenuData.SwitchAccount} renderItem={<YourChannelIcon/>}/>
-                <MenuItem title={MenuData.Purchases} renderItem={<MembershipIcon/>}/>
-                <MenuItem title={MenuData.YouTubeStudio} renderItem={<YoutubeStudioIcon/>}/>
-                <MenuItem title={MenuData.SwitchAccount} renderItem={<SwitchAccountIcon/>} right={<RightIcon/>}/>
+                <MenuItem title={StringData.SwitchAccount} renderItem={<YourChannelIcon/>}/>
+                <MenuItem title={StringData.Purchases} renderItem={<MembershipIcon/>}/>
+                <MenuItem title={StringData.YouTubeStudio} renderItem={<YoutubeStudioIcon/>}/>
+                <MenuItem title={StringData.SwitchAccount} renderItem={<SwitchAccountIcon/>} right={<RightIcon/>}/>
                 <SignOut onClick={signOut}>
-                    <MenuItem title={MenuData.SignOut} renderItem={<SignOutIcon/>}/>
+                    <MenuItem title={StringData.SignOut} renderItem={<SignOutIcon/>}/>
                 </SignOut>
             </Section>
 
             <Section>
-                <MenuItem title={MenuData.Appearance} renderItem={<AppearanceIcon/>} right={<RightIcon/>}/>
-                <MenuItem title={MenuData.Language} renderItem={<LanguageIcon/>} right={<RightIcon/>}/>
-                <MenuItem title={MenuData.Location} renderItem={<LocationIcon/>} right={<RightIcon/>}/>
-                <MenuItem title={MenuData.Settings} renderItem={<SettingsIcon color={Color.ListboxGray}/>}/>
-                <MenuItem title={MenuData.dataInYoutube} renderItem={<YourDataInYoutubeIcon/>}/>
-                <MenuItem title={MenuData.Help} renderItem={<HelpIcon color={Color.ListboxGray}/>}/>
-                <MenuItem title={MenuData.Feedback} renderItem={<FeedbackIcon/>}/>
-                <MenuItem title={MenuData.KeyboardShortcuts} renderItem={<KeyBoardShortCutIcon/>}/>
+                <MenuItem title={StringData.Appearance} renderItem={<AppearanceIcon/>} right={<RightIcon/>}/>
+                <MenuItem title={StringData.Language} renderItem={<LanguageIcon/>} right={<RightIcon/>}/>
+                <MenuItem title={StringData.Location} renderItem={<LocationIcon/>} right={<RightIcon/>}/>
+                <MenuItem title={StringData.Settings} renderItem={<SettingsIcon color={Color.ListboxGray}/>}/>
+                <MenuItem title={StringData.dataInYoutube} renderItem={<YourDataInYoutubeIcon/>}/>
+                <MenuItem title={StringData.Help} renderItem={<HelpIcon color={Color.ListboxGray}/>}/>
+                <MenuItem title={StringData.Feedback} renderItem={<FeedbackIcon/>}/>
+                <MenuItem title={StringData.KeyboardShortcuts} renderItem={<KeyBoardShortCutIcon/>}/>
             </Section>
 
             <Section>
-                <MenuItem title={MenuData.RestrictedMode} right={<RightIcon/>}/>
+                <MenuItem title={StringData.RestrictedMode} right={<RightIcon/>}/>
             </Section>
         </Container>
     )

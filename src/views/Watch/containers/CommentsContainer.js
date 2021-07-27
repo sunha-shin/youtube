@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
+import CommentsList from "../components/CommentsList";
 
 const CommentsContainer = () => {
     return (
         <Container>
-            CommentsContainer
+            <CommentsList/>
         </Container>
     )
 }

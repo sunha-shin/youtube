@@ -13,7 +13,7 @@ import {
 } from "../../../../icons";
 import SignInButton from "../Header/SignInButton";
 import {useSelector} from "react-redux";
-import {About, MenuData} from "../../../../constants/menuData";
+import {About, StringData} from "../../../../constants/StringData";
 
 const Sidebar = () => {
 
@@ -22,14 +22,14 @@ const Sidebar = () => {
     return (
         <Container>
             <Section>
-                <MenuItem title={MenuData.Home} renderItem={<HomeIcon/>}/>
-                <MenuItem title={MenuData.Explore} renderItem={<ExploreIcon/>}/>
-                <MenuItem title={MenuData.Subscriptions} renderItem={<SubscriptionsIcon/>}/>
+                <MenuItem title={StringData.Home} renderItem={<HomeIcon/>}/>
+                <MenuItem title={StringData.Explore} renderItem={<ExploreIcon/>}/>
+                <MenuItem title={StringData.Subscriptions} renderItem={<SubscriptionsIcon/>}/>
             </Section>
 
             <Section>
-                <MenuItem title={MenuData.Library} renderItem={<LibraryIcon/>}/>
-                <MenuItem title={MenuData.History} renderItem={<HistoryIcon/>}/>
+                <MenuItem title={StringData.Library} renderItem={<LibraryIcon/>}/>
+                <MenuItem title={StringData.History} renderItem={<HistoryIcon/>}/>
             </Section>
 
             <Section>
@@ -38,8 +38,8 @@ const Sidebar = () => {
                         more from youtube
                     </p>
                 </SectionTitle>
-                <MenuItem title={MenuData.YouTubePremium} renderItem={<YouTubePremiumIcon/>}/>
-                <MenuItem title={MenuData.Live} renderItem={<PremiumLiveIcon/>}/>
+                <MenuItem title={StringData.YouTubePremium} renderItem={<YouTubePremiumIcon/>}/>
+                <MenuItem title={StringData.Live} renderItem={<PremiumLiveIcon/>}/>
             </Section>
 
             {
@@ -60,26 +60,26 @@ const Sidebar = () => {
                         best of youtube
                     </p>
                 </SectionTitle>
-                <MenuItem title={MenuData.Music} renderItem={<MusicIcon/>}/>
-                <MenuItem title={MenuData.Sports} renderItem={<SportsIcon/>}/>
-                <MenuItem title={MenuData.Gaming} renderItem={<GamingIcon/>}/>
-                <MenuItem title={MenuData.MoviesShows} renderItem={<MoviesShowsIcon/>}/>
-                <MenuItem title={MenuData.News} renderItem={<NewsIcon/>}/>
-                <MenuItem title={MenuData.Live} renderItem={<LiveIcon/>}/>
-                <MenuItem title={MenuData.FashionNBeauty} renderItem={<FashionNBeautyIcon/>}/>
-                <MenuItem title={MenuData.Learning} renderItem={<LearningIcon/>}/>
-                <MenuItem title={MenuData.Spotlight} renderItem={<SpotlightIcon/>}/>
-                <MenuItem title={MenuData.Video360} renderItem={<Video360Icon/>}/>
+                <MenuItem title={StringData.Music} renderItem={<MusicIcon/>}/>
+                <MenuItem title={StringData.Sports} renderItem={<SportsIcon/>}/>
+                <MenuItem title={StringData.Gaming} renderItem={<GamingIcon/>}/>
+                <MenuItem title={StringData.MoviesShows} renderItem={<MoviesShowsIcon/>}/>
+                <MenuItem title={StringData.News} renderItem={<NewsIcon/>}/>
+                <MenuItem title={StringData.Live} renderItem={<LiveIcon/>}/>
+                <MenuItem title={StringData.FashionNBeauty} renderItem={<FashionNBeautyIcon/>}/>
+                <MenuItem title={StringData.Learning} renderItem={<LearningIcon/>}/>
+                <MenuItem title={StringData.Spotlight} renderItem={<SpotlightIcon/>}/>
+                <MenuItem title={StringData.Video360} renderItem={<Video360Icon/>}/>
             </Section>
 
             <Section>
-                <MenuItem title={MenuData.BrowseChannels} renderItem={<BrowseChannelsIcon/>}/>
+                <MenuItem title={StringData.BrowseChannels} renderItem={<BrowseChannelsIcon/>}/>
             </Section>
             <Section>
-                <MenuItem title={MenuData.YouTubePremium} renderItem={<SettingsIcon/>}/>
-                <MenuItem title={MenuData.ReportHistory} renderItem={<FlagIcon/>}/>
-                <MenuItem title={MenuData.Help} renderItem={<HelpIcon/>}/>
-                <MenuItem title={MenuData.Feedback} renderItem={<FeedbackIcon/>}/>
+                <MenuItem title={StringData.YouTubePremium} renderItem={<SettingsIcon/>}/>
+                <MenuItem title={StringData.ReportHistory} renderItem={<FlagIcon/>}/>
+                <MenuItem title={StringData.Help} renderItem={<HelpIcon/>}/>
+                <MenuItem title={StringData.Feedback} renderItem={<FeedbackIcon/>}/>
             </Section>
 
             <LastSection>

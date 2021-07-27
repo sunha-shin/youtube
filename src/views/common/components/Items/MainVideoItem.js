@@ -15,77 +15,66 @@ const MainVideoItem = ({videoItem}) => {
     const {title, description, publishedAt, channelTitle} = videoItem?.[0].snippet;
     const {viewCount, likeCount, dislikeCount} = videoItem?.[0].statistics;
 
+    console.log("@@ description", description)
+
     const formatedLike = abbreviateNumber(likeCount);
     const formatedDislike = abbreviateNumber(dislikeCount);
 
     return (
         <Container>
-            <MainVideoSection>
-                <MainVideo videoId={videoId}/>
-                <Header>
-                    <Title>{title}</Title>
-                    <HeaderBottom>
-                        <ViewPublishedAt
-                            publishedAt={publishedAt}
-                            viewCount={viewCount}/>
-                        <Count>
-                            <Menu>
-                                <Icon><LikeIcon/></Icon>
-                                <p>{formatedLike}</p>
-                            </Menu>
-                            <Menu>
-                                <Icon><DislikeIcon/></Icon>
-                                <p>{formatedDislike}</p>
-                            </Menu>
-                            <Menu>
-                                <Icon><ShareIcon/></Icon>
-                                <p>share</p>
-                            </Menu>
-                            <Menu>
-                                <Icon><SaveIcon/></Icon>
-                                <p>save</p>
-                            </Menu>
-                            <Menu>
-                                <Icon>
-                                    <VerticalViewMoreIcon/>
-                                </Icon>
-                            </Menu>
-                        </Count>
-                    </HeaderBottom>
-                </Header>
-                <Body>
-                    <BodyTop>
-                        <ProfileThumb size={48}/>
-                        <BodyTitle>
-                            <p>{channelTitle}</p>
-                            <p>123 subscribers</p>
-                        </BodyTitle>
-                        <Button>subscribe</Button>
-                    </BodyTop>
-                    <BodyDesc>
-                        {description}
-                    </BodyDesc>
-                </Body>
-            </MainVideoSection>
-            <Recommended>
-                <RecommendedVideoItem/>
-            </Recommended>
+            <MainVideo videoId={videoId}/>
+            <Header>
+                <Title>{title}</Title>
+                <HeaderBottom>
+                    <ViewPublishedAt
+                        publishedAt={publishedAt}
+                        viewCount={viewCount}/>
+                    <Count>
+                        <Menu>
+                            <Icon><LikeIcon/></Icon>
+                            <p>{formatedLike}</p>
+                        </Menu>
+                        <Menu>
+                            <Icon><DislikeIcon/></Icon>
+                            <p>{formatedDislike}</p>
+                        </Menu>
+                        <Menu>
+                            <Icon><ShareIcon/></Icon>
+                            <p>share</p>
+                        </Menu>
+                        <Menu>
+                            <Icon><SaveIcon/></Icon>
+                            <p>save</p>
+                        </Menu>
+                        <Menu>
+                            <Icon>
+                                <VerticalViewMoreIcon/>
+                            </Icon>
+                        </Menu>
+                    </Count>
+                </HeaderBottom>
+            </Header>
+            <Body>
+                <BodyTop>
+                    <ProfileThumb size={48} marginRight={16}/>
+                    <BodyTitle>
+                        <p>{channelTitle}</p>
+                        <p>123 subscribers</p>
+                    </BodyTitle>
+                    <Button>subscribe</Button>
+                </BodyTop>
+                <BodyDesc>
+                    {description}
+                </BodyDesc>
+            </Body>
         </Container>
     )
 }
 
 const Container = styled.div`
-  display: flex;
-`;
-
-const MainVideoSection = styled.div`
-  padding: 24px 24px 0 0;
-  margin: 0 0 24px 64px;
-`;
-
-const Recommended = styled.div`
 
 `;
+
 const Header = styled.div`
   padding: 20px 0 8px;
 `;
@@ -158,7 +147,8 @@ const BodyTitle = styled.div`
 const BodyDesc = styled.div`
   line-height: 1.6;
   width: 615px;
-  padding-left: 48px;
+  padding-left: 64px;
+  white-space: pre-wrap;
 `;
 
 
@@ -172,7 +162,4 @@ const Button = styled(IconButton)`
   color: #fff;
 `;
 
-const Comments = styled.div`
-    
-`;
 export default MainVideoItem;

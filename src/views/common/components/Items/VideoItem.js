@@ -28,7 +28,7 @@ const VideoItem = ({items = []}) => {
                 url={url}
             />
             <Desc>
-                <ProfileThumb/>
+                <ProfileThumb size={36} marginRight={12}/>
                 <DescHead>
                     <h1 className={"title"}>{items?.snippet?.title}</h1>
                     <h1 className={"desc"}>{items?.snippet?.channelTitle}</h1>
@@ -36,9 +36,7 @@ const VideoItem = ({items = []}) => {
                         {formatedView} · {moment(items?.snippet?.publishedAt).fromNow()}
                     </h1>
                 </DescHead>
-                <Icon>
-                    <ViewMoreIcon/>
-                </Icon>
+                <ViewMoreIcon color={'#909090'}/>
             </Desc>
         </Container>
     )
@@ -56,6 +54,7 @@ const Desc = styled.div`
 
 const DescHead = styled.div`
   line-height: 1.6;
+  flex: 1;
 
   .title {
     color: #030303;

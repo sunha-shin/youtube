@@ -70,9 +70,16 @@ export const AppsIcon = () => (
     </svg>
 )
 
-export const ViewMoreIcon = () => (
+export const ViewMoreIcon = ({color,hover}) => (
     <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="style-scope yt-icon"
-         style={{pointerEvents: "none", display: "block", width: "24", height: "24"}}>
+         style={{
+             pointerEvents: "none",
+             display: "block",
+             width: "24",
+             height: "24",
+             fill: `${color ? color : 'dimgray'},
+             `
+         }}>
         <g className="style-scope yt-icon">
             <path
                 d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
@@ -300,9 +307,17 @@ export const FiltersIcon = () => (
     </svg>
 )
 
-export const LikeIcon = () => (
+export const LikeIcon = ({size, color, padding, margin}) => (
     <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="style-scope yt-icon"
-         style={{pointerEvents: "none", display: "block", width: "24", height: "24", fill: "dimgray"}}>
+         style={{
+             pointerEvents: "none",
+             display: "block",
+             width: `${size ? size : '24'}`,
+             height: `${size ? size : '24'}`,
+             margin: `${margin ? margin : '0'}`,
+             padding: `${padding ? padding : '0'}`,
+             fill: `${color ? color : 'dimgray'}`
+         }}>
         <g className="style-scope yt-icon">
             <path
                 d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"
@@ -311,9 +326,18 @@ export const LikeIcon = () => (
     </svg>
 )
 
-export const DislikeIcon = () => (
+
+export const DislikeIcon = ({size, color, margin, padding}) => (
     <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="style-scope yt-icon"
-         style={{pointerEvents: "none", display: "block", width: "24", height: "24", fill: "dimgray"}}>
+         style={{
+             pointerEvents: "none",
+             display: "block",
+             width: `${size ? size : '24'}`,
+             height: `${size ? size : '24'}`,
+             margin: `${margin ? margin : '0'}px`,
+             padding: `${padding ? padding : '0'}px`,
+             fill: `${color ? color : 'dimgray'}`
+         }}>
         <g className="style-scope yt-icon">
             <path
                 d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"
@@ -354,9 +378,15 @@ export const BellIcon = () => (
     </svg>
 )
 
-export const VerticalViewMoreIcon = () => (
+export const VerticalViewMoreIcon = ({color}) => (
     <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="style-scope yt-icon"
-         style={{pointerEvents: "none", display: "block", width: "24", height: "24", fill: "dimgray"}}>
+         style={{
+             pointerEvents: "none",
+             display: "block",
+             width: "24",
+             height: "24",
+             fill: `${color ? color : 'dimgray'}`
+         }}>
         <g className="style-scope yt-icon">
             <circle cx="5" cy="12" r="2" className="style-scope yt-icon"/>
             <circle cx="12" cy="12" r="2" className="style-scope yt-icon"/>
@@ -505,6 +535,17 @@ export const KeyBoardShortCutIcon = (color) => (
             <path
                 d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"
                 className="style-scope yt-icon"/>
+        </g>
+    </svg>
+)
+
+
+export const SortByIcon = () => (
+    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="style-scope yt-icon"
+         style={{pointerEvents: "none", display: "block", width: "24", height: "24", fill: `#909090`}}>
+        <g className="style-scope yt-icon">
+            <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z" className="style-scope yt-icon"></path>
+            <path d="M0 0h24v24H0z" fill="none" className="style-scope yt-icon"/>
         </g>
     </svg>
 )
