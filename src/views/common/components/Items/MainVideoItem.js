@@ -15,8 +15,6 @@ const MainVideoItem = ({videoItem}) => {
     const {title, description, publishedAt, channelTitle} = videoItem?.[0].snippet;
     const {viewCount, likeCount, dislikeCount} = videoItem?.[0].statistics;
 
-    console.log("@@ description", description)
-
     const formatedLike = abbreviateNumber(likeCount);
     const formatedDislike = abbreviateNumber(dislikeCount);
 

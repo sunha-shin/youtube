@@ -5,12 +5,22 @@ import ProfileThumb from "../../common/components/Thumnnails/ProfileThumb";
 import {Placeholder} from "../../../constants/StringData";
 import CommentsItem from "./CommentsItem";
 
-const CommentsList = () => {
+const CommentsList = ({commentsItem}) => {
+
+    console.log("@@ commentsItem", commentsItem);
+    console.log("@@ CommentsList", commentsItem?.pageInfo?.resultsPerPage);
+
+    const total = commentsItem?.pageInfo?.totalResults;
+    const items = commentsItem?.items
+    
+    console.log("@@ items", items)
+    console.log("@@ commentsItem", commentsItem)
+
     return (
         <Container>
             <Header>
                 <HeaderTop>
-                    <Count>200 Comments</Count>
+                    <Count>{total} Comments</Count>
                     <SortBy>
                         <SortByIcon/>
                         <p>sort by</p>
@@ -20,17 +30,17 @@ const CommentsList = () => {
                     <ProfileThumb size={40} marginRight={20}/>
                     <CommentForm>
                         <input type="text"
-                               Placeholder={Placeholder.comment}
+                               placeholder={Placeholder.comment}
                         />
                     </CommentForm>
                 </Add>
             </Header>
             <Body>
-                <CommentsItem/>
-                <CommentsItem/>
-                <CommentsItem/>
-                <CommentsItem/>
-                <CommentsItem/>
+                {
+                    items?.map((item, i) => (
+                        <CommentsItem item={item} index={i}/>
+                    ))
+                }
             </Body>
         </Container>
     )
@@ -60,6 +70,7 @@ const Count = styled.div`
   margin: 0 32px 0 0;
   font-size: 16px;
   color: #030303;
+  font-weight: 400;
 `;
 
 const SortBy = styled.div`

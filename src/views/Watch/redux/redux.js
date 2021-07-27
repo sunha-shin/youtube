@@ -1,5 +1,6 @@
 const initialState = {
-    videoItem: []
+    videoItem: [],
+    commentsItem: {}
 }
 
 export const Action = {
@@ -7,6 +8,8 @@ export const Action = {
         UPDATE_STATE: 'WATCH/UPDATE_STATE',
         GET_VIDEO_BY_ID: 'WATCH/GET_VIDEO_BY_ID',
         SET_VIDEO_BY_ID: 'WATCH/SET_VIDEO_BY_ID',
+        GET_COMMENTS:'WATCH/GET_COMMENTS',
+        SET_COMMENTS:'WATCH/SET_COMMENTS',
     },
     Creators: {
         updateState: (props) => ({
@@ -20,7 +23,15 @@ export const Action = {
         setVideoById: (payload) => ({
             type: Action.Types.SET_VIDEO_BY_ID,
             payload
-        })
+        }),
+        getComments: (payload) => ({
+            type: Action.Types.GET_COMMENTS,
+            payload
+        }),
+        setComments: (payload) => ({
+            type: Action.Types.SET_COMMENTS,
+            payload
+        }),
     }
 }
 
@@ -38,6 +49,12 @@ const reducer = (state=initialState, action) => {
             return {
                 ...state,
                 videoItem:action.payload
+            }
+        }
+        case Action.Types.SET_COMMENTS :{
+            return {
+                ...state,
+                commentsItem:action.payload
             }
         }
     }

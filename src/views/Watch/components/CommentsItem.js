@@ -2,17 +2,37 @@ import React from 'react'
 import styled from 'styled-components';
 import ProfileThumb from "../../common/components/Thumnnails/ProfileThumb";
 import {DislikeIcon, LikeIcon} from "../../../icons";
+import moment from "moment";
 
-const CommentsItem = () => {
+const CommentsItem = ({item}) => {
+
+    console.log("@@ item item", item)
+
+    const {
+        authorChannelUrl,
+        authorDisplayName,
+        authorProfileImageUrl,
+        likeCount,
+        publishedAt,
+        updatedAt,
+        textOriginal
+    } = item?.snippet?.topLevelComment?.snippet
+
+
     return (
         <Container>
-            <ProfileThumb size={40} marginRight={20}/>
+            <ProfileThumb
+                url={authorProfileImageUrl}
+                size={40}
+                marginRight={20}/>
             <Content>
                 <Username>
-                    <p className={'username'}>불량고양이</p>
-                    <p className={'time'}>22 hours ago</p>
+                    <p className={'username'}>{authorDisplayName}</p>
+                    <p className={'time'}>
+                        {moment(publishedAt).fromNow()}
+                    </p>
                 </Username>
-                <Body>content</Body>
+                <Body>{textOriginal}</Body>
                 <Bottom>
                     <Button>
                         <LikeIcon
@@ -20,7 +40,7 @@ const CommentsItem = () => {
                             color={'#909090'}
                             margin={"8px 8px 8px 0"}
                         />
-                        <p>73</p>
+                        <p>{likeCount}</p>
                     </Button>
                     <Button>
                         <DislikeIcon
@@ -56,6 +76,7 @@ const Username = styled.div`
     font-size: 13px;
     color: #030303;
     margin: 0 4px 2px 0;
+    font-weight: bold;
   }
 
   .time {
