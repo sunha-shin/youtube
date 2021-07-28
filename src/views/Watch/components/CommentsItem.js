@@ -5,9 +5,6 @@ import {DislikeIcon, LikeIcon} from "../../../icons";
 import moment from "moment";
 
 const CommentsItem = ({item}) => {
-
-    console.log("@@ item item", item)
-
     const {
         authorChannelUrl,
         authorDisplayName,

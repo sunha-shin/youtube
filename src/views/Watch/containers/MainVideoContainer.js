@@ -8,7 +8,7 @@ import _ from 'lodash';
 import {useSelector} from "react-redux";
 import IosLoader from "../../common/components/Loader/IosLoader";
 
-const VideoByIdContainer = ({location}) => {
+const MainVideoContainer = ({location}) => {
 
     const params = qs.parse(location.search, {ignoreQueryPrefix: true});
     const videoId = params.v;
@@ -52,4 +52,4 @@ const WatchLoader = styled.div`
   align-items: center;
 `;
 
-export default withRouter(VideoByIdContainer);
+export default withRouter(MainVideoContainer);

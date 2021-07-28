@@ -11,6 +11,7 @@ const VideoThumb = ({url = '', duration = 'PT0000'}) => {
         <Container>
             <Thumb>
                 <img src={url} alt=""/>
+
                 <Icon>
                     <PlayIcon/>
                 </Icon>
@@ -23,7 +24,7 @@ const VideoThumb = ({url = '', duration = 'PT0000'}) => {
 }
 
 const Container = styled.div`
-
+  flex: 1;
 `;
 
 const Thumb = styled.div`
@@ -33,7 +34,7 @@ const Thumb = styled.div`
 
   img {
     flex: 1;
-    background: #aaa;    
+    background: #aaa;
   }
 `;
 

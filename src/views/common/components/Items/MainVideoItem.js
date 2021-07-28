@@ -4,9 +4,9 @@ import MainVideo from "../VideoList/MainVideo";
 import ViewPublishedAt from "../FormatedNum/ViewPublishedAt";
 import {DislikeIcon, LikeIcon, SaveIcon, ShareIcon, VerticalViewMoreIcon} from "../../../../icons";
 import {abbreviateNumber} from "../../../../lib/common";
-import RecommendedVideoItem from "./RecommendedVideoItem";
 import ProfileThumb from "../Thumnnails/ProfileThumb";
 import {IconButton} from "../Button/Button.Styled";
+import moment from "moment";
 
 const MainVideoItem = ({videoItem}) => {
 
@@ -25,7 +25,7 @@ const MainVideoItem = ({videoItem}) => {
                 <Title>{title}</Title>
                 <HeaderBottom>
                     <ViewPublishedAt
-                        publishedAt={publishedAt}
+                        mainPublishedAt={publishedAt}
                         viewCount={viewCount}/>
                     <Count>
                         <Menu>
@@ -56,8 +56,8 @@ const MainVideoItem = ({videoItem}) => {
                 <BodyTop>
                     <ProfileThumb size={48} marginRight={16}/>
                     <BodyTitle>
-                        <p>{channelTitle}</p>
-                        <p>123 subscribers</p>
+                        <p className={'title'}>{channelTitle}</p>
+                        <p className={'sub'}>123 subscribers</p>
                     </BodyTitle>
                     <Button>subscribe</Button>
                 </BodyTop>
@@ -140,15 +140,26 @@ const BodyTitle = styled.div`
     display: flex;
     align-items: center;
   }
+  
+  .title {
+    font-size: 14px;
+    color: #303030;
+    font-weight: bold;
+  }
+  
+  .sub {
+    font-size: 12px;
+    color: #606060;
+  }
 `;
 
 const BodyDesc = styled.div`
+  font-size: 14px;
   line-height: 1.6;
   width: 615px;
   padding-left: 64px;
   white-space: pre-wrap;
 `;
-
 
 const Button = styled(IconButton)`
   border: none;

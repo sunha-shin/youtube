@@ -10,10 +10,7 @@ const CommentsContainer = ({location}) => {
 
     const params = qs.parse(location.search, {ignoreQueryPrefix: true});
     const videoId = params.v;
-    // const commentsItem = useSelector(state => state.commentsItem?.items[0].snippet.topLevelComment.snippet.textDisplay);
     const commentsItem = useSelector(state => state.watch?.commentsItem);
-
-    console.log("@@ commentsItem", commentsItem)
 
     useEffect(() => {
         getComments(videoId);
@@ -28,9 +25,7 @@ const CommentsContainer = ({location}) => {
 
     return (
         <Container>
-
             <CommentsList commentsItem={commentsItem}/>
-
         </Container>
     )
 }

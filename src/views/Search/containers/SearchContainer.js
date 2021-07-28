@@ -12,7 +12,6 @@ const SearchContainer = ({location}) => {
     const params = qs.parse(location.search, {ignoreQueryPrefix:true});
     const search_query = params.search_query;
 
-
     const items = useSelector(state => state.search?.searchResult?.items);
 
     useEffect(() => {

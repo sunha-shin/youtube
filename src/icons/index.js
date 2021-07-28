@@ -70,15 +70,16 @@ export const AppsIcon = () => (
     </svg>
 )
 
-export const ViewMoreIcon = ({color,hover}) => (
+export const ViewMoreIcon = ({color,size,margin,padding}) => (
     <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" className="style-scope yt-icon"
          style={{
              pointerEvents: "none",
              display: "block",
-             width: "24",
-             height: "24",
-             fill: `${color ? color : 'dimgray'},
-             `
+             width: `${size ? size : '24'}`,
+             height: `${size ? size : '24'}`,
+             margin: `${margin ? margin : '0'}`,
+             padding: `${padding ? padding : '0'}`,
+             fill: `${color ? color : 'dimgray'}`
          }}>
         <g className="style-scope yt-icon">
             <path

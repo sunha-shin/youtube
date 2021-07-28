@@ -7,14 +7,8 @@ import CommentsItem from "./CommentsItem";
 
 const CommentsList = ({commentsItem}) => {
 
-    console.log("@@ commentsItem", commentsItem);
-    console.log("@@ CommentsList", commentsItem?.pageInfo?.resultsPerPage);
-
     const total = commentsItem?.pageInfo?.totalResults;
     const items = commentsItem?.items
-    
-    console.log("@@ items", items)
-    console.log("@@ commentsItem", commentsItem)
 
     return (
         <Container>
@@ -37,8 +31,8 @@ const CommentsList = ({commentsItem}) => {
             </Header>
             <Body>
                 {
-                    items?.map((item, i) => (
-                        <CommentsItem item={item} index={i}/>
+                    items?.map((item) => (
+                        <CommentsItem item={item} key={item.id}/>
                     ))
                 }
             </Body>
