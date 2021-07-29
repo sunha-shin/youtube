@@ -37,11 +37,17 @@ function* getRecommendVideoWorker({payload}) {
 
 }
 
+function* getVideoDetailWorker({id}) {
+    yield put(Action.Creators.getComments());
+    yield put(Action.Creators.getVideoById());
+}
+
 function* sagas() {
     yield all([
         takeLatest(Action.Types.GET_VIDEO_BY_ID, getVideoByIdWorker),
         takeLatest(Action.Types.GET_COMMENTS, getCommentsWorker),
         takeLatest(Action.Types.GET_RECOMMEND_VIDEOS, getRecommendVideoWorker),
+        takeLatest(Action.Types.GET_VIDEO_DETAIL, getVideoDetailWorker),
     ])
 }
 

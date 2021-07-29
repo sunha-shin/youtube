@@ -214,7 +214,7 @@ export const FeedbackIcon = (color) => (
 
 export const MusicIcon = () => (
     <img height="24" width="24" alt="" style={{borderRadius: "50%"}}
-         src="https://yt3.ggpht.com/Sa6MGOH3gCBW7M3OSDQRdkG6EYf1x44trit5qFexTVDgb7cbcPXz_euGlai_sZ244pidpt42iw=s88-c-k-c0x00ffffff-no-rj"/>
+         src="https://yt3.ggpht.com/1ymA3Slew2QkYhMnbyTHn5T3x3E5d83XD7M1VgBZzMLJMCUtjZ6vDe3A3d_4ekZJdZHF85um1A=s88-c-k-c0x00ffffff-no-rj"/>
 )
 
 export const SportsIcon = () => (
@@ -244,7 +244,7 @@ export const LiveIcon = () => (
 
 export const FashionNBeautyIcon = () => (
     <img height="24" width="24" alt="" style={{borderRadius: "50%"}}
-         src="https://yt3.ggpht.com/Cdt8XUt6IXgtG-c4llaDBP8sc8SL0xbpxwo5UFl9-bt79rWoLQar9xx3gzVXf-r_Jo-apCVK6Q=s88-c-k-c0x00ffffff-no-rj"/>
+         src="https://yt3.ggpht.com/TI__z8E7ID4G9Hgi_w788nJlasSmnUCMsAtfSUpeQGMPllHp2cpiP0tpChHJldmYHy60upstIA=s88-c-k-c0x00ffffff-no-rj"/>
 )
 
 export const LearningIcon = () => (

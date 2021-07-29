@@ -6,6 +6,8 @@ import RecommendVideosContainer from "../views/Watch/containers/RecommendVideosC
 import {appActions} from "../redux/actionCreators";
 import {withRouter} from "react-router-dom";
 import qs from "qs";
+import watchContainer from "../views/Watch/containers/WatchContainer";
+import WatchContainer from "../views/Watch/containers/WatchContainer";
 
 const Watch = ({location}) => {
 
@@ -13,6 +15,7 @@ const Watch = ({location}) => {
 
     return (
         <Container>
+            <WatchContainer/>
             <Main>
                 <VideoByIdContainer/>
                 <CommentsContainer/>
@@ -33,12 +36,12 @@ const Container = styled.div`
 const Main = styled.div`
   margin: 0 0 0 24px;
   padding: 24px 24px 0 0;
-  flex:1;
+  flex: 1;
 `;
 
 const RecommendVideo = styled.div`
   padding: 24px 24px 0 0;
-  flex:1;
+  flex: 1;
 `;
 
 

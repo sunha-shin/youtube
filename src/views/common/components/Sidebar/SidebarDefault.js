@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 import Sidebar from "./Sidebar";
 import HeaderLeft from "../Header/HeaderLeft";
-import cn from 'classnames';
-import {useSelector} from "react-redux";
 
 const SidebarDefault = () => {
     // const sidebar = useSelector(state => state.app.sidebar);

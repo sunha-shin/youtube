@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 import {SignInIcon} from "../../../../icons";
 import {useSignIn} from "../../../../hooks/useSignIn";
-import {CLIENT_ID} from "../../../../constants";
 import IosLoader from "../Loader/IosLoader";
 
 const SignInButton = () => {

@@ -13,6 +13,7 @@ export const Action = {
         SET_COMMENTS: 'WATCH/SET_COMMENTS',
         GET_RECOMMEND_VIDEOS: 'WATCH/GET_RECOMMEND_VIDEO',
         SET_RECOMMEND_VIDEOS: 'WATCH/SET_RECOMMEND_VIDEO',
+        GET_VIDEO_DETAIL:'WATCH/GET_VIDEO_DETAIL'
     },
     Creators: {
         updateState: (props) => ({
@@ -42,6 +43,11 @@ export const Action = {
         setRecommendVideos: (payload) => ({
             type: Action.Types.SET_RECOMMEND_VIDEOS,
             payload
+        }),
+        getVideoDetail:(id, payload) => ({
+            type:Action.Types.GET_VIDEO_DETAIL,
+            id,
+            payload
         })
     }
 }
@@ -65,13 +71,13 @@ const reducer = (state = initialState, action) => {
         case Action.Types.SET_COMMENTS : {
             return {
                 ...state,
-                commentsItem: action.payload
+                [action.id]: action.payload
             }
         }
         case Action.Types.SET_RECOMMEND_VIDEOS : {
             return {
                 ...state,
-                recommendVideos: action.payload
+                [action.id]: action.payload
             }
         }
     }

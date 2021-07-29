@@ -17,7 +17,7 @@ import {About, StringData} from "../../../../constants/StringData";
 
 const Sidebar = () => {
 
-    const {isLoggedIn, profile} = useSelector(state => state.auth);
+    const {isLoggedIn} = useSelector(state => state.auth);
 
     return (
         <Container>

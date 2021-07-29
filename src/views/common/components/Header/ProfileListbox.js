@@ -12,13 +12,12 @@ import {
     YoutubeStudioIcon
 } from "../../../../icons";
 import {useSignOut} from "../../../../hooks/useSignOut";
-import SignOutButton from "./SignOutButton";
 import {StringData} from "../../../../constants/StringData";
 import {Color} from "../../../../constants/styled";
 
 const ProfileListbox = ({profile}) => {
 
-    const {signOut, loaded} = useSignOut();
+    const {signOut} = useSignOut();
 
     return (
         <Container className={"Container"}>

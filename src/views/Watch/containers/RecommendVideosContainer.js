@@ -2,7 +2,6 @@ import React, {useEffect} from 'react'
 import styled from 'styled-components';
 import {watchActions} from "../../../redux/actionCreators";
 import {useSelector} from "react-redux";
-import {withRouter} from "react-router-dom";
 import RecommendList from "../components/RecommendList";
 
 const RecommendVideosContainer = () => {

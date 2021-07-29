@@ -69,10 +69,4 @@ const DescHead = styled.div`
   }
 `;
 
-const Icon = styled.div`
-  svg {
-    fill: dimgray;
-  }
-`;
-
 export default VideoItem;

@@ -4,7 +4,7 @@ import {useSignOut} from "../../../../hooks/useSignOut";
 
 const SignOutButton = () => {
 
-    const {signOut, loaded} = useSignOut();
+    const {signOut} = useSignOut();
 
     return (
         <Container onClick={signOut}>

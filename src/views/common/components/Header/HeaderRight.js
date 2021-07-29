@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
-import {AppsIcon, BellIcon, CreateIcon, NotificationIcon, SettingsIcon, ViewMoreIcon} from "../../../../icons";
+import {AppsIcon, CreateIcon, NotificationIcon, ViewMoreIcon} from "../../../../icons";
 import {DefaultIcon} from "../Button/Button.Styled";
 import SignInButton from "./SignInButton";
 import {useSelector} from "react-redux";
 import Member from "./Member";
-import SignOutButton from "./SignOutButton";
 
 const HeaderRight = () => {
 

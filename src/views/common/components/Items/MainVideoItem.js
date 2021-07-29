@@ -6,7 +6,6 @@ import {DislikeIcon, LikeIcon, SaveIcon, ShareIcon, VerticalViewMoreIcon} from "
 import {abbreviateNumber} from "../../../../lib/common";
 import ProfileThumb from "../Thumnnails/ProfileThumb";
 import {IconButton} from "../Button/Button.Styled";
-import moment from "moment";
 
 const MainVideoItem = ({videoItem}) => {
 
