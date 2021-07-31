@@ -1,16 +1,22 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const WatchContainer = () => {
+const AppIcon = ({children}) => {
     return (
         <Container>
-            WatchContainer
+            {children}
         </Container>
     )
 }
 
 const Container = styled.div`
-  display: flex;
+  svg {
+    fill:dimgray;
+  }
+  
+  img {
+    fill:dimgray;
+  }
 `;
 
-export default WatchContainer;
+export default AppIcon;

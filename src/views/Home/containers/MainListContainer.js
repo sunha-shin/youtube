@@ -5,11 +5,13 @@ import {appActions, homeActions} from "../../../redux/actionCreators";
 import {API_KEY} from "../../../constants";
 import {useSelector} from "react-redux";
 import cn from 'classnames'
+import VideoItem from "../../Watch/components/VideoItem";
 
 const MainListContainer = () => {
 
     const list = useSelector(state => state.home?.videoList?.items);
     const sidebar = useSelector(state => state.app.sidebar);
+    const renderVideoItem = (item) => <VideoItem items={item}/>
 
     useEffect(() => {
         getVideo();
@@ -28,7 +30,10 @@ const MainListContainer = () => {
     return (
         <Container className={cn("MainListContainer", {isActive: sidebar})}>
             tags@@
-            <GridList data={list}/>
+            <GridList
+                data={list}
+                renderItem={renderVideoItem}
+            />
         </Container>
     )
 }
@@ -40,8 +45,6 @@ const Container = styled.div`
     //padding-left: 240px;
     padding: 0 50px 0 300px;
   }
-
-
 `;
 
 export default MainListContainer;

@@ -11,7 +11,6 @@ const HeaderLeft = () => {
 
     const handleSidebar = () => {
         appActions.handleSidebar(!sidebar)
-        console.log("@@ sidebar", sidebar)
     };
 
     return (

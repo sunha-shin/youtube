@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {withRouter} from "react-router-dom";
 import {appActions, watchActions} from "../../../redux/actionCreators";
 import qs from "qs";
-import MainVideoItem from "../../common/components/Items/MainVideoItem";
+import MainVideoItem from "../components/MainVideoItem";
 import _ from 'lodash';
 import {useSelector} from "react-redux";
 import IosLoader from "../../common/components/Loader/IosLoader";

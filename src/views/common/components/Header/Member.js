@@ -1,11 +1,18 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components';
 import ProfileThumb from "../Thumnnails/ProfileThumb";
 import ProfileListbox from "./ProfileListbox";
+import Contains from "../Contains";
 
 const Member = ({profile}) => {
 
     const [listBox, setListBox] = useState(false);
+
+    const onContains = (isContain) => {
+        if (!isContain) {
+            setListBox(false);
+        }
+    };
 
     return (
         <Container>
@@ -17,7 +24,9 @@ const Member = ({profile}) => {
             </Image>
             {
                 listBox &&
-                <ProfileListbox profile={profile}/>
+                <Contains onContains={onContains}>
+                    <ProfileListbox profile={profile}/>
+                </Contains>
             }
         </Container>
     )

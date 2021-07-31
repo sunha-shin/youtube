@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
-import MainVideo from "../VideoList/MainVideo";
-import ViewPublishedAt from "../FormatedNum/ViewPublishedAt";
-import {DislikeIcon, LikeIcon, SaveIcon, ShareIcon, VerticalViewMoreIcon} from "../../../../icons";
-import {abbreviateNumber} from "../../../../lib/common";
-import ProfileThumb from "../Thumnnails/ProfileThumb";
-import {IconButton} from "../Button/Button.Styled";
+import MainVideo from "../../Search/components/Items/MainVideo";
+import ViewPublishedAt from "../../common/components/FormatedNum/ViewPublishedAt";
+import {DislikeIcon, LikeIcon, SaveIcon, ShareIcon, VerticalViewMoreIcon} from "../../../icons";
+import {abbreviateNumber} from "../../../lib/common";
+import ProfileThumb from "../../common/components/Thumnnails/ProfileThumb";
+import {IconButton} from "../../common/components/Button/Button.Styled";
 
 const MainVideoItem = ({videoItem}) => {
 
@@ -18,7 +18,7 @@ const MainVideoItem = ({videoItem}) => {
     const formatedDislike = abbreviateNumber(dislikeCount);
 
     return (
-        <Container>
+        <Container className={'MainVideoItem'}>
             <MainVideo videoId={videoId}/>
             <Header>
                 <Title>{title}</Title>

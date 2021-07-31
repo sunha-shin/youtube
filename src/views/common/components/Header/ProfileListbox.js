@@ -20,9 +20,9 @@ const ProfileListbox = ({profile}) => {
     const {signOut} = useSignOut();
 
     return (
-        <Container className={"Container"}>
+        <Container className={"ProfileListbox"}>
 
-            <Section>
+            <Section className={"ProfileSection"}>
                 <Header>
                     <ProfileImg>
                         <ProfileThumb
@@ -37,30 +37,33 @@ const ProfileListbox = ({profile}) => {
                 </Header>
             </Section>
 
-            <Section>
-                <MenuItem title={StringData.SwitchAccount} renderItem={<YourChannelIcon/>}/>
-                <MenuItem title={StringData.Purchases} renderItem={<MembershipIcon/>}/>
-                <MenuItem title={StringData.YouTubeStudio} renderItem={<YoutubeStudioIcon/>}/>
-                <MenuItem title={StringData.SwitchAccount} renderItem={<SwitchAccountIcon/>} right={<RightIcon/>}/>
-                <SignOut onClick={signOut}>
-                    <MenuItem title={StringData.SignOut} renderItem={<SignOutIcon/>}/>
-                </SignOut>
-            </Section>
+            <Track>
+                <Section>
+                    <MenuItem title={StringData.SwitchAccount} renderItem={<YourChannelIcon/>}/>
+                    <MenuItem title={StringData.Purchases} renderItem={<MembershipIcon/>}/>
+                    <MenuItem title={StringData.YouTubeStudio} renderItem={<YoutubeStudioIcon/>}/>
+                    <MenuItem title={StringData.SwitchAccount} renderItem={<SwitchAccountIcon/>} right={<RightIcon/>}/>
+                    <SignOut onClick={signOut}>
+                        <MenuItem title={StringData.SignOut} renderItem={<SignOutIcon/>}/>
+                    </SignOut>
+                </Section>
 
-            <Section>
-                <MenuItem title={StringData.Appearance} renderItem={<AppearanceIcon/>} right={<RightIcon/>}/>
-                <MenuItem title={StringData.Language} renderItem={<LanguageIcon/>} right={<RightIcon/>}/>
-                <MenuItem title={StringData.Location} renderItem={<LocationIcon/>} right={<RightIcon/>}/>
-                <MenuItem title={StringData.Settings} renderItem={<SettingsIcon color={Color.ListboxGray}/>}/>
-                <MenuItem title={StringData.dataInYoutube} renderItem={<YourDataInYoutubeIcon/>}/>
-                <MenuItem title={StringData.Help} renderItem={<HelpIcon color={Color.ListboxGray}/>}/>
-                <MenuItem title={StringData.Feedback} renderItem={<FeedbackIcon/>}/>
-                <MenuItem title={StringData.KeyboardShortcuts} renderItem={<KeyBoardShortCutIcon/>}/>
-            </Section>
+                <Section>
+                    <MenuItem title={StringData.Appearance} renderItem={<AppearanceIcon/>} right={<RightIcon/>}/>
+                    <MenuItem title={StringData.Language} renderItem={<LanguageIcon/>} right={<RightIcon/>}/>
+                    <MenuItem title={StringData.Location} renderItem={<LocationIcon/>} right={<RightIcon/>}/>
+                    <MenuItem title={StringData.Settings} renderItem={<SettingsIcon color={Color.ListboxGray}/>}/>
+                    <MenuItem title={StringData.dataInYoutube} renderItem={<YourDataInYoutubeIcon/>}/>
+                    <MenuItem title={StringData.Help} renderItem={<HelpIcon color={Color.ListboxGray}/>}/>
+                    <MenuItem title={StringData.Feedback} renderItem={<FeedbackIcon/>}/>
+                    <MenuItem title={StringData.KeyboardShortcuts} renderItem={<KeyBoardShortCutIcon/>}/>
+                </Section>
 
-            <Section>
-                <MenuItem title={StringData.RestrictedMode} right={<RightIcon/>}/>
-            </Section>
+                <Section>
+                    <MenuItem title={StringData.RestrictedMode} right={<RightIcon/>}/>
+                </Section>
+
+            </Track>
         </Container>
     )
 }
@@ -75,19 +78,31 @@ const Container = styled.div`
   border: 1px solid #e8e8e8;
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.98);
+  padding-top: 96px;
+  overflow: hidden;
+`;
+
+const Track = styled.div`
   overflow-y: auto;
+  height: 100%;
 `;
 
 const Section = styled.div`
   padding: 8px 0;
   border-bottom: 1px solid #e8e8e8;
   line-height: 1.6;
+
+  &.ProfileSection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
 `;
 
 const Header = styled.div`
   padding: 16px;
   display: flex;
-  background: #fff;
 `;
 
 const ProfileImg = styled.div`

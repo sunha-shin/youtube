@@ -30,7 +30,10 @@ const Watch = ({location}) => {
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin: 0 75px;
+  //margin: 0 75px;
+  overflow: hidden;
+  max-width: 1750px;
+  margin: 0 auto;
 `;
 
 const Main = styled.div`
@@ -41,7 +44,9 @@ const Main = styled.div`
 
 const RecommendVideo = styled.div`
   padding: 24px 24px 0 0;
-  flex: 1;
+  width: 426px;
+  background: #eee;
+  flex-shrink: 0;
 `;
 
 

@@ -22,8 +22,7 @@ const Container = styled.div`
   position: sticky;
   top: 0;
   z-index: 2000;
-  background: rgba(255,255,255, 0.98);
-  
+  background: rgba(255,255,255, 0.98);  
 `;
 
 export default Gnb;

@@ -10,6 +10,13 @@ function* getVideoWorker({payload}) {
     try {
         const result = yield call(API.getVideo, payload)
         if (!_.isEmpty(result.data)) {
+            for (const item of result.data.items) {
+                const channelId = item.snippet.channelId;
+                // const channelResult = yield call(API.getChannel, channelId);
+                // const channelThumbnail = channelResult.thumb;
+                // item.snippet.thumbnails = channelThumbnail;
+            }
+            // const items = result.data.items.map()
             yield put(Action.Creators.setVideo(result.data))
         } else {
             if (isDev) {

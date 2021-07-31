@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import VideoItem from "../Items/VideoItem";
+import VideoItem from "../../../Watch/components/VideoItem";
 import {BreakPoint} from "../../../../constants/styled";
 
-const GridList = ({data = []}) => {
+const GridList = ({data = [], renderItem}) => {
 
     return (
         <Container>
@@ -11,7 +11,7 @@ const GridList = ({data = []}) => {
                 {
                     data.map((items, i) => (
                         <Col key={i}>
-                            <VideoItem items={items}/>
+                            {renderItem(items)}
                         </Col>
                     ))
                 }
@@ -29,7 +29,6 @@ const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 0 12px;
-
 `;
 
 const Col = styled.div`
@@ -39,7 +38,7 @@ const Col = styled.div`
   @media (max-width: ${BreakPoint.LG}px) {
     width: 33.33%;
   }
-  
+
   @media (max-width: ${BreakPoint.MD}px) {
     width: 50%;
   }

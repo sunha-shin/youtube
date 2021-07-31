@@ -9,7 +9,7 @@ import Member from "./Member";
 const HeaderRight = () => {
 
     const {isLoggedIn, profile} = useSelector(state => state.auth);
-    
+
     console.log("@@ profile", profile)
 
     return (
@@ -35,7 +35,7 @@ const HeaderRight = () => {
                     </>
                     :
                     <>
-                        <Button>
+                        <Button className={'button'}>
                             <ViewMoreIcon/>
                         </Button>
                         <Button>
@@ -49,12 +49,12 @@ const HeaderRight = () => {
 }
 
 const Container = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
-const Button = styled(DefaultIcon)`
+const Button = styled.div`
   margin: 0 4px;
 `;
 
