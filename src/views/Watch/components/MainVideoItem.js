@@ -139,13 +139,13 @@ const BodyTitle = styled.div`
     display: flex;
     align-items: center;
   }
-  
+
   .title {
     font-size: 14px;
     color: #303030;
     font-weight: bold;
   }
-  
+
   .sub {
     font-size: 12px;
     color: #606060;
@@ -158,6 +158,8 @@ const BodyDesc = styled.div`
   width: 615px;
   padding-left: 64px;
   white-space: pre-wrap;
+  height: 80px;
+  overflow: hidden;
 `;
 
 const Button = styled(IconButton)`

@@ -20,6 +20,7 @@ const Container = styled.div`
     width: ${props => props.size || 36}px;
     cursor: pointer;
     border-radius: 50%;
+    object-fit: cover;
   }
 `;
 

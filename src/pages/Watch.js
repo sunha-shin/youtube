@@ -16,13 +16,13 @@ const Watch = ({location}) => {
     return (
         <Container>
             <WatchContainer/>
-            <Main>
-                <VideoByIdContainer/>
-                <CommentsContainer/>
-            </Main>
-            <RecommendVideo>
-                <RecommendVideosContainer/>
-            </RecommendVideo>
+            {/*<Main>*/}
+            {/*    <VideoByIdContainer/>*/}
+            {/*    <CommentsContainer/>*/}
+            {/*</Main>*/}
+            {/*<RecommendVideo>*/}
+            {/*    <RecommendVideosContainer/>*/}
+            {/*</RecommendVideo>*/}
         </Container>
     )
 }

@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 import cn from 'classnames'
 import VideoItem from "../../Watch/components/VideoItem";
 
-const MainListContainer = () => {
+const HomeContainer = () => {
 
     const list = useSelector(state => state.home?.videoList?.items);
     const sidebar = useSelector(state => state.app.sidebar);
@@ -28,7 +28,7 @@ const MainListContainer = () => {
     };
 
     return (
-        <Container className={cn("MainListContainer", {isActive: sidebar})}>
+        <Container className={cn("HomeContainer", {isActive: sidebar})}>
             tags@@
             <GridList
                 data={list}
@@ -47,4 +47,4 @@ const Container = styled.div`
   }
 `;
 
-export default MainListContainer;
+export default HomeContainer;

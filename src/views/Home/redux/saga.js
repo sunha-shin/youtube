@@ -1,29 +1,31 @@
-import {all, call, put, takeLatest} from "redux-saga/effects";
+import {all, call, put, takeLatest, select} from "redux-saga/effects";
 import API from "../../../api";
 import {Action} from "./redux";
 import {mockData} from "./mock";
 import {isDev} from "../../../lib/environment";
 import _ from 'lodash';
 
-
 function* getVideoWorker({payload}) {
     try {
         const result = yield call(API.getVideo, payload)
         if (!_.isEmpty(result.data)) {
             for (const item of result.data.items) {
-                const channelId = item.snippet.channelId;
-                // const channelResult = yield call(API.getChannel, channelId);
-                // const channelThumbnail = channelResult.thumb;
-                // item.snippet.thumbnails = channelThumbnail;
+                const channelId = item.snippet?.channelId;
+                const channelResult = yield call(API.getChannels,
+                    {
+                        part: "brandingSettings",
+                        id: channelId
+                    }
+                );
+                const channelThumbnail = channelResult?.data?.items?.[0]?.brandingSettings?.image?.bannerExternalUrl;
+                item.snippet.channelThumbnail = channelThumbnail;
             }
-            // const items = result.data.items.map()
-            yield put(Action.Creators.setVideo(result.data))
+            yield put(Action.Creators.setVideo(result.data));
         } else {
             if (isDev) {
                 yield put(Action.Creators.setVideo(mockData))
             }
         }
-
     } catch (err) {
         console.log('@@ err', err);
     }

@@ -14,6 +14,8 @@ const VideoItem = ({items = []}) => {
     const videoId = items.id;
     const duration = useSelector(state => items?.contentDetails?.duration);
     const url = useSelector(state => items?.snippet?.thumbnails?.medium?.url);
+    const channelThumbnail = useSelector(state => items?.snippet?.channelThumbnail);
+
 
     const formatedView = abbreviateNumber(items?.statistics?.viewCount);
 
@@ -22,13 +24,16 @@ const VideoItem = ({items = []}) => {
     };
 
     return (
-        <Container onClick={() => onClick(videoId)}>
+        <Container onClick={() => onClick(videoId)} className={'VideoItem'}>
             <VideoThumb
                 duration={duration}
                 url={url}
             />
             <Desc>
-                <ProfileThumb size={36} marginRight={12}/>
+                <ProfileThumb
+                    size={36}
+                    marginRight={12}
+                    url={channelThumbnail}/>
                 <DescHead>
                     <h1 className={"title"}>{items?.snippet?.title}</h1>
                     <h1 className={"desc"}>{items?.snippet?.channelTitle}</h1>

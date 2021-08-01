@@ -7,6 +7,8 @@ export const Action = {
         UPDATE_STATE: 'HOME/UPDATE_STATE',
         GET_VIDEO: 'HOME/GET_VIDEO',
         SET_VIDEO: 'HOME/SET_VIDEO',
+        GET_CHANNEL_IMAGE:'HOME/GET_CHANNEL_IMAGE',
+        SET_CHANNEL_IMAGE:'HOME/SET_CHANNEL_IMAGE',
     },
     Creators: {
         updateState:(props) => ({
@@ -19,6 +21,14 @@ export const Action = {
         }),
         setVideo: (payload) => ({
             type: Action.Types.SET_VIDEO,
+            payload
+        }),
+        getChannelImage: (payload) => ({
+            type:Action.Types.GET_CHANNEL_IMAGE,
+            payload
+        }),
+        setChannelImage:(payload) => ({
+            type:Action.Types.SET_CHANNEL_IMAGE,
             payload
         })
     }

@@ -3,23 +3,32 @@ import API from "../../../api";
 import _ from "lodash";
 import {Action} from "./redux";
 
-function* getVideoByIdWorker({payload}) {
+function* getVideoByIdWorker({id}) {
     try {
-        const result = yield call(API.getVideoById, payload);
-        if (!_.isEmpty(result.data)) {
-            yield put(Action.Creators.setVideoById(result.data.items));
-        }
+        const result = yield call(API.getVideoById, {
+            part: `snippet, statistics`,
+            id
+        });
+
+        console.log("@@ getVideoByIdWorker result", result)
+        if (_.isEmpty(result.data)) return "null"
+        yield put(Action.Creators.setVideoById(result.data.items));
+
     } catch (err) {
         console.log('@@ err', err);
     }
 }
 
-function* getCommentsWorker({payload}) {
+function* getCommentsWorker({id}) {
     try {
-        const result = yield call(API.getComments, payload);
-        if (!_.isEmpty(result.data)) {
-            yield put(Action.Creators.setComments(result.data))
-        }
+        const result = yield call(API.getComments, {
+            part: 'snippet',
+            videoId: id
+        });
+        console.log("@@ get Comments Worker result", result)
+        if (_.isEmpty(result.data)) return "null"
+        yield put(Action.Creators.setComments(result.data));
+
     } catch (err) {
         console.log('@@ err', err);
     }
@@ -34,12 +43,12 @@ function* getRecommendVideoWorker({payload}) {
     } catch (err) {
         console.log('@@ err', err);
     }
-
 }
 
-function* getVideoDetailWorker({id}) {
-    yield put(Action.Creators.getComments());
-    yield put(Action.Creators.getVideoById());
+function* getVideoDetailWorker(payload) {
+    const videoId = payload.payload.id;
+    yield put(Action.Creators.getVideoById(videoId));
+    yield put(Action.Creators.getComments(videoId));
 }
 
 function* sagas() {

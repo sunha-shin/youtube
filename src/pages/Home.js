@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
-import MainListContainer from "../views/Home/containers/MainListContainer";
+import HomeContainer from "../views/Home/containers/HomeContainer";
 
 const Home = () => {
     return (
         <Container>
             {/*<TagsContainer/>*/}
-            <MainListContainer/>
+            <HomeContainer/>
         </Container>
     )
 }
