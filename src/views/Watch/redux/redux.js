@@ -1,7 +1,6 @@
 const initialState = {
-    videoItem: [],
-    commentsItem: {},
-    recommendVideos: {}
+    // videoItem: [],
+    // commentsItem: {}
 }
 
 export const Action = {
@@ -11,10 +10,8 @@ export const Action = {
         SET_VIDEO_BY_ID: 'WATCH/SET_VIDEO_BY_ID',
         GET_COMMENTS: 'WATCH/GET_COMMENTS',
         SET_COMMENTS: 'WATCH/SET_COMMENTS',
-        GET_RECOMMEND_VIDEOS: 'WATCH/GET_RECOMMEND_VIDEO',
-        SET_RECOMMEND_VIDEOS: 'WATCH/SET_RECOMMEND_VIDEO',
-        GET_VIDEO_DETAIL:'WATCH/GET_VIDEO_DETAIL',
-        SET_VIDEO_DETAIL:'WATCH/SET_VIDEO_DETAIL',
+        GET_VIDEO_DETAIL: 'WATCH/GET_VIDEO_DETAIL',
+        SET_VIDEO_DETAIL: 'WATCH/SET_VIDEO_DETAIL',
     },
     Creators: {
         updateState: (props) => ({
@@ -37,23 +34,10 @@ export const Action = {
             type: Action.Types.SET_COMMENTS,
             id, payload
         }),
-        getRecommendVideos: (payload) => ({
-            type: Action.Types.GET_RECOMMEND_VIDEOS,
+        getVideoDetail: (payload) => ({
+            type: Action.Types.GET_VIDEO_DETAIL,
             payload
         }),
-        setRecommendVideos: (payload) => ({
-            type: Action.Types.SET_RECOMMEND_VIDEOS,
-            payload
-        }),
-        getVideoDetail:(payload) => ({
-            type:Action.Types.GET_VIDEO_DETAIL,
-            payload
-        }),
-        setVideoDetail:(id, payload) => ({
-            type:Action.Types.SET_VIDEO_DETAIL,
-            id,
-            payload
-        })
     }
 }
 
@@ -70,27 +54,21 @@ const reducer = (state = initialState, action) => {
         case Action.Types.SET_VIDEO_BY_ID : {
             return {
                 ...state,
-                [action.id]: action.payload
+                [action.id]: {
+                    ...state[action.id],
+                    videoItem: action.payload
+                }
             }
         }
         case Action.Types.SET_COMMENTS : {
             return {
                 ...state,
-                [action.id]: action.payload
+                [action.id]: {
+                    ...state[action.id],
+                    commentsItem: action.payload
+                }
             }
         }
-        // case Action.Types.SET_RECOMMEND_VIDEOS : {
-        //     return {
-        //         ...state,
-        //         [action.id]: action.payload
-        //     }
-        // }
-        // case Action.Types.SET_VIDEO_DETAIL : {
-        //     return {
-        //         ...state,
-        //         [action.id] : action.payload
-        //     }
-        // }
     }
 };
 

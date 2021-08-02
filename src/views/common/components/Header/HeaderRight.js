@@ -10,8 +10,6 @@ const HeaderRight = () => {
 
     const {isLoggedIn, profile} = useSelector(state => state.auth);
 
-    console.log("@@ profile", profile)
-
     return (
         <Container>
             {

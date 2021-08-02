@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import styled from "styled-components";
 import {GlobalStyle} from "./styled/GlobalStyle";
 import {Switch, Route} from 'react-router-dom';

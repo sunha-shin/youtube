@@ -3,15 +3,20 @@ import styled from 'styled-components';
 import {watchActions} from "../../../redux/actionCreators";
 import qs from "qs";
 import {withRouter} from "react-router-dom";
+import {useSelector} from "react-redux";
+import VideoDetail from "../components/VideoDetail";
 
 const WatchContainer = ({location}) => {
 
     const params = qs.parse(location.search, {ignoreQueryPrefix: true});
     const videoId = params.v;
 
+    const videoItem = useSelector(state => state.watch);
+    console.log("@@ watch", videoItem)
+    
     useEffect(() => {
         getVideoDetail(videoId);
-    }, []);
+    }, [videoId]);
 
     const getVideoDetail = (id) => {
         watchActions.getVideoDetail({id})
@@ -19,7 +24,9 @@ const WatchContainer = ({location}) => {
     
     return (
         <Container>
-            watchContainer
+            <VideoDetail
+                videoId={videoId}
+            />
         </Container>
     )
 }

@@ -10,9 +10,8 @@ function* getVideoByIdWorker({id}) {
             id
         });
 
-        console.log("@@ getVideoByIdWorker result", result)
         if (_.isEmpty(result.data)) return "null"
-        yield put(Action.Creators.setVideoById(result.data.items));
+        yield put(Action.Creators.setVideoById(id, result.data.items));
 
     } catch (err) {
         console.log('@@ err', err);
@@ -25,21 +24,9 @@ function* getCommentsWorker({id}) {
             part: 'snippet',
             videoId: id
         });
-        console.log("@@ get Comments Worker result", result)
         if (_.isEmpty(result.data)) return "null"
-        yield put(Action.Creators.setComments(result.data));
+        yield put(Action.Creators.setComments(id, result.data.items));
 
-    } catch (err) {
-        console.log('@@ err', err);
-    }
-}
-
-function* getRecommendVideoWorker({payload}) {
-    try {
-        const result = yield call(API.getVideo, payload)
-        if (!_.isEmpty(result.data)) {
-            yield put(Action.Creators.setRecommendVideos(result.data))
-        }
     } catch (err) {
         console.log('@@ err', err);
     }
@@ -55,8 +42,8 @@ function* sagas() {
     yield all([
         takeLatest(Action.Types.GET_VIDEO_BY_ID, getVideoByIdWorker),
         takeLatest(Action.Types.GET_COMMENTS, getCommentsWorker),
-        takeLatest(Action.Types.GET_RECOMMEND_VIDEOS, getRecommendVideoWorker),
         takeLatest(Action.Types.GET_VIDEO_DETAIL, getVideoDetailWorker),
+        // takeLatest(Action.Types.GET_RECOMMEND_VIDEOS, getRecommendVideoWorker),
     ])
 }
 

@@ -1,12 +1,7 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components';
-import VideoByIdContainer from "../views/Watch/containers/MainVideoContainer";
-import CommentsContainer from "../views/Watch/containers/CommentsContainer";
-import RecommendVideosContainer from "../views/Watch/containers/RecommendVideosContainer";
 import {appActions} from "../redux/actionCreators";
 import {withRouter} from "react-router-dom";
-import qs from "qs";
-import watchContainer from "../views/Watch/containers/WatchContainer";
 import WatchContainer from "../views/Watch/containers/WatchContainer";
 
 const Watch = ({location}) => {
