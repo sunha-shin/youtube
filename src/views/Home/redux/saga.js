@@ -13,11 +13,11 @@ function* getVideoWorker({payload}) {
                 const channelId = item.snippet?.channelId;
                 const channelResult = yield call(API.getChannels,
                     {
-                        part: "brandingSettings",
+                        part: "snippet",
                         id: channelId
                     }
                 );
-                const channelThumbnail = channelResult?.data?.items?.[0]?.brandingSettings?.image?.bannerExternalUrl;
+                const channelThumbnail = channelResult?.data?.items?.[0]?.snippet?.thumbnails?.medium.url;
                 item.snippet.channelThumbnail = channelThumbnail;
             }
             yield put(Action.Creators.setVideo(result.data));

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components';
 import MainVideo from "../../Search/components/Items/MainVideo";
 import ViewPublishedAt from "../../common/components/FormatedNum/ViewPublishedAt";
@@ -9,13 +9,22 @@ import {IconButton} from "../../common/components/Button/Button.Styled";
 
 const MainVideoItem = ({videoItem}) => {
 
-    const videoId = videoItem?.id;
+    const videoId = videoItem?.[0]?.id;
 
-    const {title, description, publishedAt, channelTitle} = videoItem?.[0].snippet;
+    const subscribers = videoItem?.[0]?.channelInfo?.statistics?.subscriberCount;
+    const userImage = videoItem?.[0]?.channelInfo?.snippet?.thumbnails?.medium.url;
+
+
+    console.log("@@ subscribers", subscribers)
+    console.log("@@ userImage", userImage)
+
+    const {title, description, publishedAt, channelTitle} = videoItem?.[0]?.snippet;
     const {viewCount, likeCount, dislikeCount} = videoItem?.[0].statistics;
 
     const formatedLike = abbreviateNumber(likeCount);
     const formatedDislike = abbreviateNumber(dislikeCount);
+    const formatedSubscribers = abbreviateNumber(subscribers);
+
 
     return (
         <Container className={'MainVideoItem'}>
@@ -53,10 +62,14 @@ const MainVideoItem = ({videoItem}) => {
             </Header>
             <Body>
                 <BodyTop>
-                    <ProfileThumb size={48} marginRight={16}/>
+                    <ProfileThumb
+                        url={userImage}
+                        size={48}
+                        marginRight={16}
+                    />
                     <BodyTitle>
                         <p className={'title'}>{channelTitle}</p>
-                        <p className={'sub'}>123 subscribers</p>
+                        <p className={'sub'}>{formatedSubscribers} subscribers</p>
                     </BodyTitle>
                     <Button>subscribe</Button>
                 </BodyTop>
@@ -80,10 +93,14 @@ const HeaderBottom = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 40px;
 `;
 
 const Title = styled.div`
   font-size: 18px;
+  height: 26px;
+  display: flex;
+  align-items: center;
 `;
 
 const Count = styled.div`

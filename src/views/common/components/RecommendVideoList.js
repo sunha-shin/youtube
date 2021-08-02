@@ -1,19 +1,14 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components';
-import RecommendItem from "./RecommendItem";
+import RecommendItem from "./Items/RecommendItem";
 import {useSelector} from "react-redux";
 import {videoActions, watchActions} from "../../../redux/actionCreators";
 import {withRouter} from "react-router-dom";
 import qs from "qs";
 
-const RecommendVideoList = ({location}) => {
+const RecommendVideoList = ({videoId, videoCategoryId}) => {
 
-    const params = qs.parse(location.search, {ignoreQueryPrefix: true});
-    const videoId = params.v;
-
-    const videoCategoryId = 23;
-
-    // const recommendVideoItem = useSelector(state => state.watch?.recommendVideos?.items);
+    const recommendVideoList = useSelector(state => state.video?.recommendVideo?.[videoCategoryId]);
 
     useEffect(() => {
         getRecommendVideos();
@@ -30,12 +25,13 @@ const RecommendVideoList = ({location}) => {
     return (
         <Container>
             {
-                // recommendVideoItem.map((items, i) => (
-                //     <RecommendItem
-                //         key={i}
-                //         item={items}
-                //     />
-                // ))
+                recommendVideoList &&
+                recommendVideoList.map((items, i) => (
+                    <RecommendItem
+                        key={i}
+                        item={items}
+                    />
+                ))
             }
 
         </Container>
@@ -43,7 +39,7 @@ const RecommendVideoList = ({location}) => {
 }
 
 const Container = styled.div`
-  
+
 `;
 
 export default withRouter(RecommendVideoList);

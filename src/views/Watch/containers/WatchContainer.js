@@ -11,9 +11,9 @@ const WatchContainer = ({location}) => {
     const params = qs.parse(location.search, {ignoreQueryPrefix: true});
     const videoId = params.v;
 
-    const videoItem = useSelector(state => state.watch);
-    console.log("@@ watch", videoItem)
-    
+    const videoItem = useSelector(state => state.watch?.[videoId]?.videoItem);
+    const commentsItem = useSelector(state => state.watch?.[videoId]?.commentsItem);
+
     useEffect(() => {
         getVideoDetail(videoId);
     }, [videoId]);
@@ -25,7 +25,8 @@ const WatchContainer = ({location}) => {
     return (
         <Container>
             <VideoDetail
-                videoId={videoId}
+                videoItem={videoItem}
+                commentsItem={commentsItem}
             />
         </Container>
     )

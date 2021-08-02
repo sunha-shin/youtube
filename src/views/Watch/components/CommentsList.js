@@ -1,14 +1,19 @@
 import React from 'react'
 import styled from 'styled-components';
-import {SortByIcon} from "../../../icons";
+import {defaultUserIcon, SortByIcon} from "../../../icons";
 import ProfileThumb from "../../common/components/Thumnnails/ProfileThumb";
 import {Placeholder} from "../../../constants/StringData";
 import CommentsItem from "./CommentsItem";
+import {useSelector} from "react-redux";
+import {defaultUser} from "../../../constants/styled";
 
 const CommentsList = ({commentsItem}) => {
 
     const total = commentsItem?.pageInfo?.totalResults;
-    const items = commentsItem?.items
+
+    const {isLoggedIn, profile} = useSelector(state => state.auth);
+
+    const profileImage = useSelector(state => state.auth?.profile?.imageUrl);
 
     return (
         <Container>
@@ -21,7 +26,10 @@ const CommentsList = ({commentsItem}) => {
                     </SortBy>
                 </HeaderTop>
                 <Add>
-                    <ProfileThumb size={40} marginRight={20}/>
+                    <ProfileThumb
+                        url={profileImage}
+                        size={40}
+                        marginRight={20}/>
                     <CommentForm>
                         <input type="text"
                                placeholder={Placeholder.comment}
@@ -31,7 +39,7 @@ const CommentsList = ({commentsItem}) => {
             </Header>
             <Body>
                 {
-                    items?.map((item) => (
+                    commentsItem?.map((item) => (
                         <CommentsItem item={item} key={item.id}/>
                     ))
                 }

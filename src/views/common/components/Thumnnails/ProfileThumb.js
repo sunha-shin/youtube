@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
+import {defaultUser} from "../../../../constants/styled";
 
 const ProfileThumb = ({url, size, marginRight}) => {
 
     return (
         <Container size={size} marginRight={marginRight}>
-            <img src={url || "https://yt3.ggpht.com/vQrdlCaT4Tx1axJtSUa1oxp2zlnRxH-oMreTwWqB-2tdNFStIOrWWw-0jwPvVCUEjm_MywltBFY=s176-c-k-c0x00ffffff-no-nd-rj"}
+            <img src={url || defaultUser.imageUrl}
                  alt=""
             />
         </Container>

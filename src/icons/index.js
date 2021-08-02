@@ -550,4 +550,3 @@ export const SortByIcon = () => (
         </g>
     </svg>
 )
-

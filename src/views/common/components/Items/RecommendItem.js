@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import VideoThumb from "../../common/components/Thumnnails/VideoThumb";
-import {ViewMoreIcon} from "../../../icons";
-import ViewPublishedAt from "../../common/components/FormatedNum/ViewPublishedAt";
-import {navigate} from "../../../lib/history";
+import VideoThumb from "../Thumnnails/VideoThumb";
+import {ViewMoreIcon} from "../../../../icons";
+import ViewPublishedAt from "../FormatedNum/ViewPublishedAt";
+import {navigate} from "../../../../lib/history";
 import qs from 'qs';
 
 const RecommendItem = ({item}) => {

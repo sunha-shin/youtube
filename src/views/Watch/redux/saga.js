@@ -9,8 +9,19 @@ function* getVideoByIdWorker({id}) {
             part: `snippet, statistics`,
             id
         });
-
         if (_.isEmpty(result.data)) return "null"
+
+        for (const item of result.data.items) {
+            const channelId = item.snippet?.channelId;
+            const channelResult = yield call(API.getChannels,
+                {
+                    part: "snippet, statistics",
+                    id: channelId
+                }
+            );
+            const channelInfo = channelResult?.data?.items?.[0];
+            item.channelInfo = channelInfo;
+        }
         yield put(Action.Creators.setVideoById(id, result.data.items));
 
     } catch (err) {
@@ -43,7 +54,6 @@ function* sagas() {
         takeLatest(Action.Types.GET_VIDEO_BY_ID, getVideoByIdWorker),
         takeLatest(Action.Types.GET_COMMENTS, getCommentsWorker),
         takeLatest(Action.Types.GET_VIDEO_DETAIL, getVideoDetailWorker),
-        // takeLatest(Action.Types.GET_RECOMMEND_VIDEOS, getRecommendVideoWorker),
     ])
 }
 
