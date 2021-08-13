@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import VideoItem from "../../../Watch/components/VideoItem";
+import VideoItem from "../Items/VideoItem";
 import {BreakPoint} from "../../../../constants/styled";
 
 const GridList = ({data = [], renderItem}) => {

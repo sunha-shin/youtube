@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
-import {defaultUserIcon, SortByIcon} from "../../../icons";
-import ProfileThumb from "../../common/components/Thumnnails/ProfileThumb";
-import {Placeholder} from "../../../constants/StringData";
+import {defaultUserIcon, SortByIcon} from "../../../../icons";
+import ProfileThumb from "../../../common/components/Thumnnails/ProfileThumb";
+import {Placeholder} from "../../../../constants/StringData";
 import CommentsItem from "./CommentsItem";
 import {useSelector} from "react-redux";
-import {defaultUser} from "../../../constants/styled";
+import {defaultUser} from "../../../../constants/styled";
 
 const CommentsList = ({commentsItem}) => {
 

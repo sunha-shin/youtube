@@ -5,7 +5,8 @@ import {appActions, homeActions} from "../../../redux/actionCreators";
 import {API_KEY} from "../../../constants";
 import {useSelector} from "react-redux";
 import cn from 'classnames'
-import VideoItem from "../../Watch/components/VideoItem";
+import VideoItem from "../../common/components/Items/VideoItem";
+import IosLoader from "../../common/components/Loader/IosLoader";
 
 const HomeContainer = () => {
 
@@ -27,9 +28,10 @@ const HomeContainer = () => {
         })
     };
 
+    if(!list) return <IosLoader/>
+
     return (
         <Container className={cn("HomeContainer", {isActive: sidebar})}>
-            tags@@
             <GridList
                 data={list}
                 renderItem={renderVideoItem}
@@ -42,7 +44,6 @@ const Container = styled.div`
   padding-left: 72px;
 
   &.isActive {
-    //padding-left: 240px;
     padding: 0 50px 0 300px;
   }
 `;

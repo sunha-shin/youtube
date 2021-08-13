@@ -1,22 +1,24 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import styled from 'styled-components';
-import MainVideo from "../../Search/components/Items/MainVideo";
-import ViewPublishedAt from "../../common/components/FormatedNum/ViewPublishedAt";
-import {DislikeIcon, LikeIcon, SaveIcon, ShareIcon, VerticalViewMoreIcon} from "../../../icons";
-import {abbreviateNumber} from "../../../lib/common";
-import ProfileThumb from "../../common/components/Thumnnails/ProfileThumb";
-import {IconButton} from "../../common/components/Button/Button.Styled";
+import MainVideo from "../../../Search/components/Items/MainVideo";
+import ViewPublishedAt from "../../../common/components/FormatedNum/ViewPublishedAt";
+import {DislikeIcon, LikeIcon, SaveIcon, ShareIcon, VerticalViewMoreIcon} from "../../../../icons";
+import {abbreviateNumber} from "../../../../lib/common";
+import ProfileThumb from "../../../common/components/Thumnnails/ProfileThumb";
+import {IconButton} from "../../../common/components/Button/Button.Styled";
+import cn from 'classnames';
 
 const MainVideoItem = ({videoItem}) => {
 
-    const videoId = videoItem?.[0]?.id;
+    const [showDesc, setShowDesc] = useState(true);
+    const [descHeight, setDescHeight] = useState(0);
+    const descRef = useRef(0);
 
+    const height = descHeight == 66;
+
+    const videoId = videoItem?.[0]?.id;
     const subscribers = videoItem?.[0]?.channelInfo?.statistics?.subscriberCount;
     const userImage = videoItem?.[0]?.channelInfo?.snippet?.thumbnails?.medium.url;
-
-
-    console.log("@@ subscribers", subscribers)
-    console.log("@@ userImage", userImage)
 
     const {title, description, publishedAt, channelTitle} = videoItem?.[0]?.snippet;
     const {viewCount, likeCount, dislikeCount} = videoItem?.[0].statistics;
@@ -25,6 +27,11 @@ const MainVideoItem = ({videoItem}) => {
     const formatedDislike = abbreviateNumber(dislikeCount);
     const formatedSubscribers = abbreviateNumber(subscribers);
 
+    useEffect(() => {
+        if (descRef.current) {
+            setDescHeight(descRef.current.clientHeight);
+        }
+    }, [])
 
     return (
         <Container className={'MainVideoItem'}>
@@ -73,8 +80,16 @@ const MainVideoItem = ({videoItem}) => {
                     </BodyTitle>
                     <Button>subscribe</Button>
                 </BodyTop>
-                <BodyDesc>
-                    {description}
+                <BodyDesc className={cn('bodyDesc', {isActive: showDesc, height:height})}>
+                    {
+                        height &&
+                        <ShowButton onClick={() => setShowDesc(!showDesc)}>
+                            {showDesc ? "show more" : "show less"}
+                        </ShowButton>
+                    }
+                    <DescDetail className={'DescDetail'} ref={descRef}>
+                        {description}
+                    </DescDetail>
                 </BodyDesc>
             </Body>
         </Container>
@@ -146,7 +161,6 @@ const BodyTop = styled.div`
   padding: 16px 0 0;
 `;
 
-
 const BodyTitle = styled.div`
   flex: 1;
   margin: 2px 0;
@@ -170,14 +184,43 @@ const BodyTitle = styled.div`
 `;
 
 const BodyDesc = styled.div`
-  font-size: 14px;
-  line-height: 1.6;
+  position: relative;
   width: 615px;
-  padding-left: 64px;
+  padding: 0 0 0 64px;
+  font-size: 14px;
+
+  line-height: 1.6;
   white-space: pre-wrap;
-  height: 80px;
-  overflow: hidden;
+
+  &.height {
+    padding: 0 0 35px 64px;
+  }
 `;
+
+const DescDetail = styled.div`
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  .isActive & {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+`;
+
+const ShowButton = styled.div`
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+  color: #606060;
+  margin-left: 64px;
+`;
+
 
 const Button = styled(IconButton)`
   border: none;

@@ -13,10 +13,12 @@ function* getVideoByIdWorker({id}) {
 
         for (const item of result.data.items) {
             const channelId = item.snippet?.channelId;
-            const channelResult = yield call(API.getChannels,
+            const channelResult = yield call(API.getSearchResult,
                 {
                     part: "snippet, statistics",
-                    id: channelId
+                    id: channelId,
+                    relatedToVideoId:id,
+                    type:"video"
                 }
             );
             const channelInfo = channelResult?.data?.items?.[0];

@@ -6,7 +6,6 @@ export const BreakPoint = {
     }
 ;
 
-
 export const Color = {
     ListboxGray: '#909090'
 }

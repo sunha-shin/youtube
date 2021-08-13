@@ -1,12 +1,11 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components';
-import RecommendItem from "./Items/RecommendItem";
+import RelatedItem from "./RelatedItem";
 import {useSelector} from "react-redux";
-import {videoActions, watchActions} from "../../../redux/actionCreators";
+import {videoActions} from "../../../../redux/actionCreators";
 import {withRouter} from "react-router-dom";
-import qs from "qs";
 
-const RecommendVideoList = ({videoId, videoCategoryId}) => {
+const RelatedVideoList = ({videoId, videoCategoryId}) => {
 
     const recommendVideoList = useSelector(state => state.video?.recommendVideo?.[videoCategoryId]);
 
@@ -27,7 +26,7 @@ const RecommendVideoList = ({videoId, videoCategoryId}) => {
             {
                 recommendVideoList &&
                 recommendVideoList.map((items, i) => (
-                    <RecommendItem
+                    <RelatedItem
                         key={i}
                         item={items}
                     />
@@ -42,4 +41,4 @@ const Container = styled.div`
 
 `;
 
-export default withRouter(RecommendVideoList);
+export default withRouter(RelatedVideoList);

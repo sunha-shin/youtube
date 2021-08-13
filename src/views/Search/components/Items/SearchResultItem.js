@@ -7,6 +7,7 @@ import {abbreviateNumber} from "../../../../lib/common";
 import {navigate} from "../../../../lib/history";
 import qs from "qs";
 import {useSelector} from "react-redux";
+import ProfileThumb from "../../../common/components/Thumnnails/ProfileThumb";
 
 const SearchResultItem = ({items}) => {
 
@@ -14,6 +15,8 @@ const SearchResultItem = ({items}) => {
 
     const dateFormated = moment(items?.snippet?.publishedAt).fromNow();
     const viewFormated = abbreviateNumber(items?.statistics?.viewCount);
+
+    console.log("@@ Search items", items)
 
     const onClick = (id) => {
         navigate(`/watch?${qs.stringify({v: id})}`)
@@ -33,7 +36,10 @@ const SearchResultItem = ({items}) => {
                 <Body>
                     <Text>{viewFormated} · {dateFormated}</Text>
                     <ChannelInfo>
-                        <img src="" alt="channel img"/>
+                        <ProfileThumb
+                            // url={profileImage}
+                            size={40}
+                            marginRight={20}/>
                         <Text>{items?.snippet?.channelTitle}</Text>
                     </ChannelInfo>
                     <Text>{items?.snippet?.description}</Text>

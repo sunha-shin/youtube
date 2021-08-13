@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import MainVideoItem from "./MainVideoItem";
-import CommentsList from "./CommentsList";
+import MainVideoItem from "./mainVideo/MainVideoItem";
+import CommentsList from "./comments/CommentsList";
 import IosLoader from "../../common/components/Loader/IosLoader";
-import RecommendVideoList from "../../common/components/RecommendVideoList";
+import RelatedVideoList from "./relatedVideos/RelatedVideoList";
 import {useSelector} from "react-redux";
 
 const VideoDetail = ({videoItem, commentsItem}) => {
@@ -20,17 +20,15 @@ const VideoDetail = ({videoItem, commentsItem}) => {
                             <MainVideoItem videoItem={videoItem}/>
                             <CommentsList commentsItem={commentsItem}/>
                         </Main>
-                        <RecommendVideo>
-                            <RecommendVideoList
+                        <RelatedVideo>
+                            <RelatedVideoList
                                 videoId={videoId}
                                 videoCategoryId={videoCategoryId}
                             />
-                        </RecommendVideo>
+                        </RelatedVideo>
                     </>
                     : <IosLoader/>
             }
-
-
         </Container>
     )
 }
@@ -49,10 +47,9 @@ const Main = styled.div`
   flex: 1;
 `;
 
-const RecommendVideo = styled.div`
+const RelatedVideo = styled.div`
   padding: 24px 24px 0 0;
   width: 426px;
-  background: #eee;
   flex-shrink: 0;
 `;
 

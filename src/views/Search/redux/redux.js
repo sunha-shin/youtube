@@ -20,7 +20,7 @@ export const Action = {
         setSearchResult:(payload) => ({
             type:Action.Types.SET_SEARCH_RESULT,
             payload
-        })
+        }),
     }
 }
 

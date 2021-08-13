@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
-import ProfileThumb from "../../common/components/Thumnnails/ProfileThumb";
-import VideoThumb from "../../common/components/Thumnnails/VideoThumb";
-import {ViewMoreIcon} from "../../../icons";
+import ProfileThumb from "../Thumnnails/ProfileThumb";
+import VideoThumb from "../Thumnnails/VideoThumb";
+import {ViewMoreIcon} from "../../../../icons";
 import moment from "moment";
-import {abbreviateNumber} from "../../../lib/common";
-import {navigate} from "../../../lib/history";
+import {abbreviateNumber} from "../../../../lib/common";
+import {navigate} from "../../../../lib/history";
 import {useSelector} from "react-redux";
 import qs from 'qs';
 
@@ -15,7 +15,6 @@ const VideoItem = ({items = []}) => {
     const duration = useSelector(state => items?.contentDetails?.duration);
     const url = useSelector(state => items?.snippet?.thumbnails?.medium?.url);
     const channelThumbnail = useSelector(state => items?.snippet?.channelThumbnail);
-
 
     const formatedView = abbreviateNumber(items?.statistics?.viewCount);
 
@@ -62,7 +61,6 @@ const DescHead = styled.div`
   flex: 1;
 
   .title {
-    color: #030303;
     font-size: 16px;
     font-weight: bold;
     overflow: hidden;

@@ -53,3 +53,8 @@ export const About = {
 export const Placeholder = {
     comment : 'Add a public comment...'
 }
+
+export const ShowButton = {
+    showMore : "show more",
+    showLess : "show less"
+}

@@ -6,12 +6,12 @@ import {withRouter} from "react-router-dom";
 import {useSelector} from "react-redux";
 import SearchResultDetail from "../components/Detail/SearchResultDetail";
 import qs from "qs";
+import IosLoader from "../../common/components/Loader/IosLoader";
 
 const SearchContainer = ({location}) => {
 
     const params = qs.parse(location.search, {ignoreQueryPrefix:true});
     const search_query = params.search_query;
-
     const items = useSelector(state => state.search?.searchResult?.items);
 
     useEffect(() => {
@@ -21,12 +21,14 @@ const SearchContainer = ({location}) => {
     const getSearchResult = () => {
         searchActions.getSearchResult({
             part: 'snippet',
-            maxResults: 10,
+            maxResults: 25,
             key: API_KEY,
             q: search_query,
             // q(query) should be STRING
         })
     };
+
+    if(!items) return <IosLoader/>
 
     return (
         <Container>

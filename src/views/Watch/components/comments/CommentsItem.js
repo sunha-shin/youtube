@@ -1,20 +1,30 @@
-import React from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import styled from 'styled-components';
-import ProfileThumb from "../../common/components/Thumnnails/ProfileThumb";
-import {DislikeIcon, LikeIcon} from "../../../icons";
+import ProfileThumb from "../../../common/components/Thumnnails/ProfileThumb";
+import {DislikeIcon, LikeIcon} from "../../../../icons";
 import moment from "moment";
+import cn from 'classnames';
 
 const CommentsItem = ({item}) => {
+    const [showDesc, setShowDesc] = useState(true);
+    const [descHeight, setDescHeight] = useState(0);
+    const descRef = useRef(0);
+
+    const height = descHeight > 88;
+
     const {
-        authorChannelUrl,
         authorDisplayName,
         authorProfileImageUrl,
         likeCount,
         publishedAt,
-        updatedAt,
         textOriginal
     } = item?.snippet?.topLevelComment?.snippet
 
+    useEffect(() => {
+        if (descRef.current) {
+            setDescHeight(descRef.current.clientHeight);
+        }
+    }, [])
 
     return (
         <Container>
@@ -29,7 +39,17 @@ const CommentsItem = ({item}) => {
                         {moment(publishedAt).fromNow()}
                     </p>
                 </Username>
-                <Body>{textOriginal}</Body>
+                <Body className={cn('Body', {isActive: showDesc, height: height})}>
+                    {
+                        height &&
+                        <ShowButton onClick={() => setShowDesc(!showDesc)}>
+                            {showDesc ? "Show more" : "Show less"}
+                        </ShowButton>
+                    }
+                    <CommentsBody className={'CommentsBody'} ref={descRef}>
+                        {textOriginal}
+                    </CommentsBody>
+                </Body>
                 <Bottom>
                     <Button>
                         <LikeIcon
@@ -84,10 +104,28 @@ const Username = styled.div`
 `;
 
 const Body = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
-  color: #030303;
   font-size: 14px;
+  padding-bottom: 0;
+
+  &.height {
+    padding-bottom: 25px;
+  }
+
+`;
+
+const CommentsBody = styled.div`
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  .isActive & {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 `;
 
 const Bottom = styled.div`
@@ -115,5 +153,15 @@ const Button = styled.div`
   cursor: pointer;
 `;
 
+const ShowButton = styled.div`
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #606060;
+  margin: 4px 0 0;
+`;
 
 export default CommentsItem;

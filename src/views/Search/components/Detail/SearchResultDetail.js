@@ -12,10 +12,10 @@ const SearchResultDetail = ({items}) => {
                 <p>filters</p>
             </Filter>
             {
-                items.map((item, index) => (
+                items.map((item) => (
                     <SearchResultItem
                         items={item}
-                        index={item?.id?.videoId}
+                        key={item?.id?.videoId}
                     />
                 ))
             }
